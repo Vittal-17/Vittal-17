@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="285" viewBox="0 0 1280 285" role="img">
+<defs>
+                  <linearGradient id="base" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#EEFABD"/><stop offset="43%" stop-color="#F7F7EF"/><stop offset="100%" stop-color="#EEF1FB"/></linearGradient>
+                  <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F6F9EC"/></linearGradient>
+                  <radialGradient id="orb"><stop offset="0" stop-color="#DEFF83" stop-opacity=".75"/><stop offset="1" stop-color="#DEFF83" stop-opacity="0"/></radialGradient>
+                  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="12"/><feOffset dy="7"/><feComponentTransfer><feFuncA type="linear" slope=".11"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                 </defs>
+
+<title>Engineering toolkit — interface, services, data and shipping</title>
+<rect x="0" y="0" width="1280" height="285" rx="0" fill="url(#base)" opacity="1" />
+<line x1="0" y1="0" x2="0" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="64" y1="0" x2="64" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="128" y1="0" x2="128" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="192" y1="0" x2="192" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="256" y1="0" x2="256" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="320" y1="0" x2="320" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="384" y1="0" x2="384" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="448" y1="0" x2="448" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="512" y1="0" x2="512" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="576" y1="0" x2="576" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="640" y1="0" x2="640" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="704" y1="0" x2="704" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="768" y1="0" x2="768" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="832" y1="0" x2="832" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="896" y1="0" x2="896" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="960" y1="0" x2="960" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="1024" y1="0" x2="1024" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="1088" y1="0" x2="1088" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="1152" y1="0" x2="1152" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="1216" y1="0" x2="1216" y2="285" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="0" y1="0" x2="1280" y2="0" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="0" y1="64" x2="1280" y2="64" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="0" y1="128" x2="1280" y2="128" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="0" y1="192" x2="1280" y2="192" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<line x1="0" y1="256" x2="1280" y2="256" stroke="#D1D5C6" stroke-width="0.9" opacity="0.11" />
+<text x="30" y="39" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800" fill="#60665F" letter-spacing="1.6" >03 / THE TOOLKIT</text>
+<text x="30" y="85" font-family="Arial, Helvetica, sans-serif" font-size="41" font-weight="800" fill="#171916" letter-spacing="-1.4" >Chosen for the problem.</text>
+<rect x="27" y="108" width="302" height="149" rx="19" fill="#FFFFFD" opacity="1" stroke="#DADDD1" stroke-width="1" />
+<rect x="41" y="123" width="26" height="26" rx="8" fill="#D7FF68" opacity="1" />
+<text x="54" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >1</text>
+<text x="78" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800" fill="#171916" letter-spacing="0.7" >INTERFACE</text>
+<rect x="44" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="57" cy="179" r="3" fill="#92B346" />
+<text x="67" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >React</text>
+<rect x="183" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="196" cy="179" r="3" fill="#92B346" />
+<text x="206" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Next.js</text>
+<rect x="44" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="57" cy="218" r="3" fill="#92B346" />
+<text x="67" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >TypeScript</text>
+<rect x="183" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="196" cy="218" r="3" fill="#92B346" />
+<text x="206" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Tailwind CSS</text>
+<rect x="343" y="108" width="302" height="149" rx="19" fill="#FFFFFD" opacity="1" stroke="#DADDD1" stroke-width="1" />
+<rect x="357" y="123" width="26" height="26" rx="8" fill="#CEDAFF" opacity="1" />
+<text x="370" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >2</text>
+<text x="394" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800" fill="#171916" letter-spacing="0.7" >BACKEND</text>
+<rect x="360" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="373" cy="179" r="3" fill="#92B346" />
+<text x="383" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Python</text>
+<rect x="499" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="512" cy="179" r="3" fill="#92B346" />
+<text x="522" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >FastAPI</text>
+<rect x="360" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="373" cy="218" r="3" fill="#92B346" />
+<text x="383" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Django REST</text>
+<rect x="499" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="512" cy="218" r="3" fill="#92B346" />
+<text x="522" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >REST / OAuth</text>
+<rect x="659" y="108" width="302" height="149" rx="19" fill="#FFFFFD" opacity="1" stroke="#DADDD1" stroke-width="1" />
+<rect x="673" y="123" width="26" height="26" rx="8" fill="#CEDAFF" opacity="1" />
+<text x="686" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >3</text>
+<text x="710" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800" fill="#171916" letter-spacing="0.7" >DATA + AI</text>
+<rect x="676" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="689" cy="179" r="3" fill="#92B346" />
+<text x="699" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >PostgreSQL</text>
+<rect x="815" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="828" cy="179" r="3" fill="#92B346" />
+<text x="838" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >MongoDB Atlas</text>
+<rect x="676" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="689" cy="218" r="3" fill="#92B346" />
+<text x="699" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >RAG / Vector Search</text>
+<rect x="815" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="828" cy="218" r="3" fill="#92B346" />
+<text x="838" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Scikit-learn</text>
+<rect x="975" y="108" width="302" height="149" rx="19" fill="#FFFFFD" opacity="1" stroke="#DADDD1" stroke-width="1" />
+<rect x="989" y="123" width="26" height="26" rx="8" fill="#D7FF68" opacity="1" />
+<text x="1002" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >4</text>
+<text x="1026" y="142" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800" fill="#171916" letter-spacing="0.7" >SHIP + OPERATE</text>
+<rect x="992" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="1005" cy="179" r="3" fill="#92B346" />
+<text x="1015" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Docker</text>
+<rect x="1131" y="164" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="1144" cy="179" r="3" fill="#92B346" />
+<text x="1154" y="184" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >GitHub Actions</text>
+<rect x="992" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="1005" cy="218" r="3" fill="#92B346" />
+<text x="1015" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Oracle Cloud</text>
+<rect x="1131" y="203" width="130" height="31" rx="14" fill="#F8F9F5" opacity="1" stroke="#E4E5DB" stroke-width="1" />
+<circle cx="1144" cy="218" r="3" fill="#92B346" />
+<text x="1154" y="223" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#171916" letter-spacing="0" >Caddy / n8n</text>
+</svg>

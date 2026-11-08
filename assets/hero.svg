@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="526" viewBox="0 0 1280 526" role="img">
+<defs>
+                  <linearGradient id="base" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#EEFABD"/><stop offset="43%" stop-color="#F7F7EF"/><stop offset="100%" stop-color="#EEF1FB"/></linearGradient>
+                  <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F6F9EC"/></linearGradient>
+                  <radialGradient id="orb"><stop offset="0" stop-color="#DEFF83" stop-opacity=".75"/><stop offset="1" stop-color="#DEFF83" stop-opacity="0"/></radialGradient>
+                  <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="12"/><feOffset dy="7"/><feComponentTransfer><feFuncA type="linear" slope=".11"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                 </defs>
+
+<title>Vittal J G — Big ideas. Built for real.</title><desc>Editorial software engineer banner in warm ivory, chartreuse, charcoal, and periwinkle, inspired by Vittal’s developer portfolio.</desc>
+<rect x="0" y="0" width="1280" height="526" rx="0" fill="url(#base)" opacity="1" />
+<ellipse cx="648" cy="470" rx="505" ry="250" fill="url(#orb)" opacity=".6"/>
+<line x1="0" y1="0" x2="0" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="54" y1="0" x2="54" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="108" y1="0" x2="108" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="162" y1="0" x2="162" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="216" y1="0" x2="216" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="270" y1="0" x2="270" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="324" y1="0" x2="324" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="378" y1="0" x2="378" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="432" y1="0" x2="432" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="486" y1="0" x2="486" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="540" y1="0" x2="540" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="594" y1="0" x2="594" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="648" y1="0" x2="648" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="702" y1="0" x2="702" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="756" y1="0" x2="756" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="810" y1="0" x2="810" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="864" y1="0" x2="864" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="918" y1="0" x2="918" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="972" y1="0" x2="972" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="1026" y1="0" x2="1026" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="1080" y1="0" x2="1080" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="1134" y1="0" x2="1134" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="1188" y1="0" x2="1188" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="1242" y1="0" x2="1242" y2="526" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="0" x2="1280" y2="0" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="54" x2="1280" y2="54" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="108" x2="1280" y2="108" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="162" x2="1280" y2="162" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="216" x2="1280" y2="216" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="270" x2="1280" y2="270" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="324" x2="1280" y2="324" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="378" x2="1280" y2="378" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="432" x2="1280" y2="432" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="0" y1="486" x2="1280" y2="486" stroke="#D1D5C6" stroke-width="0.9" opacity="0.19" />
+<line x1="40" y1="0" x2="40" y2="526" stroke="#92B346" stroke-width="4" opacity="0.95" />
+<rect x="53" y="28" width="42" height="42" rx="12" fill="#D7FF68" opacity="1" />
+<text x="74" y="57" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >V</text>
+<text x="110" y="46" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="800" fill="#171916" letter-spacing="0.35" >VITTAL J G</text>
+<text x="110" y="65" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#60665F" letter-spacing="0.9" >FULL-STACK ENGINEER / BENGALURU</text>
+<rect x="991" y="28" width="240" height="34" rx="17" fill="#FFFFFD" opacity="1" stroke="#DADDD1" stroke-width="1" />
+<circle cx="1008" cy="45" r="5" fill="#92B346" />
+<text x="1026" y="49" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#171916" letter-spacing="1.0" >AVAILABLE FOR HIRE</text>
+<line x1="53" y1="90" x2="1230" y2="90" stroke="#DADDD1" stroke-width="1" opacity="1" />
+<text x="59" y="131" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#60665F" letter-spacing="1.8" >01 / SOFTWARE  ·  SYSTEMS  ·  AI</text>
+<text x="54" y="239" font-family="Arial, Helvetica, sans-serif" font-size="97" font-weight="800" fill="#171916" letter-spacing="-4.7" >Big ideas.</text>
+<rect x="53" y="271" width="662" height="98" rx="12" fill="#D7FF68" opacity="1" />
+<text x="62" y="350" font-family="Arial, Helvetica, sans-serif" font-size="90" font-weight="800" fill="#171916" letter-spacing="-5.0" >Built for real.</text>
+<text x="57" y="406" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" fill="#171916" letter-spacing="0" >Thoughtful interfaces. Serious engineering.</text>
+<text x="57" y="436" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#60665F" letter-spacing="0" >From the first database table to the final interaction.</text>
+<rect x="55" y="471" width="223" height="35" rx="17" fill="#FFFFFD" opacity="1" stroke="#DADDD1" stroke-width="1" />
+<text x="70" y="493" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#171916" letter-spacing="0.6" >VIEW THE PORTFOLIO</text>
+<rect x="824" y="117" width="392" height="330" rx="22" fill="#FFFFFD" opacity="1" stroke="#DADDD1" stroke-width="1" filter="url(#shadow)"/>
+<rect x="824" y="117" width="392" height="50" rx="22" fill="#F4F6EE" opacity="1" />
+<rect x="824" y="146" width="392" height="21" rx="0" fill="#F4F6EE" opacity="1" />
+<circle cx="851" cy="142" r="5" fill="#9BA78E" />
+<circle cx="871" cy="142" r="5" fill="#B8C2AB" />
+<circle cx="891" cy="142" r="5" fill="#C7CFBE" />
+<text x="1179" y="146" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#60665F" letter-spacing="1.3" text-anchor="end" >SYSTEM MAP</text>
+<text x="847" y="204" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#171916" letter-spacing="-1.3" >ONE MIND.</text>
+<text x="847" y="239" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" fill="#92B346" letter-spacing="-0.8" >THE WHOLE SYSTEM.</text>
+<line x1="899" y1="297" x2="943" y2="297" stroke="#A6B59A" stroke-width="2" opacity="1" stroke-dasharray="4 4"/>
+<circle cx="874" cy="297" r="23" fill="#D7FF68" stroke="#DADDD1" stroke-width="1" />
+<text x="874" y="303" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >01</text>
+<text x="874" y="339" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="700" fill="#171916" letter-spacing="0.7" text-anchor="middle" >DATA</text>
+<line x1="993" y1="297" x2="1037" y2="297" stroke="#A6B59A" stroke-width="2" opacity="1" stroke-dasharray="4 4"/>
+<circle cx="968" cy="297" r="23" fill="#F2F5E8" stroke="#DADDD1" stroke-width="1" />
+<text x="968" y="303" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >02</text>
+<text x="968" y="339" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="700" fill="#171916" letter-spacing="0.7" text-anchor="middle" >API</text>
+<line x1="1087" y1="297" x2="1131" y2="297" stroke="#A6B59A" stroke-width="2" opacity="1" stroke-dasharray="4 4"/>
+<circle cx="1062" cy="297" r="23" fill="#F2F5E8" stroke="#DADDD1" stroke-width="1" />
+<text x="1062" y="303" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >03</text>
+<text x="1062" y="339" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="700" fill="#171916" letter-spacing="0.7" text-anchor="middle" >UI</text>
+<circle cx="1156" cy="297" r="23" fill="#D7FF68" stroke="#DADDD1" stroke-width="1" />
+<text x="1156" y="303" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="800" fill="#171916" letter-spacing="0" text-anchor="middle" >04</text>
+<text x="1156" y="339" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" font-weight="700" fill="#171916" letter-spacing="0.7" text-anchor="middle" >SHIP</text>
+<line x1="847" y1="360" x2="1193" y2="360" stroke="#DADDD1" stroke-width="1" opacity="1" />
+<rect x="847" y="376" width="17" height="17" rx="5" fill="#CEDAFF" opacity="1" />
+<text x="876" y="390" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="14" font-weight="700" fill="#171916" letter-spacing="0" >DESIGN / ENGINEER / TEST / DEPLOY</text>
+<text x="1197" y="487" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" letter-spacing="0.9" text-anchor="end" >© 2026 / VITTAL-17</text>
+</svg>
