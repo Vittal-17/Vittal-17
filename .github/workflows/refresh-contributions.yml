@@ -1,0 +1,159 @@
+name: Refresh Contributions
+
+on:
+  schedule:
+    # 02:30 UTC every day  (matches GitHub's contribution graph refresh window)
+    - cron: "30 2 * * *"
+  workflow_dispatch:   # allow manual trigger from the Actions tab
+
+permissions:
+  contents: write      # needed to commit contributions.json and cards/
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      # ── checkout ────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # ── fetch contribution data from GitHub GraphQL API ─────────────────
+      - name: Fetch contribution data
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USERNAME: Vittal-17
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, datetime, urllib.request
+
+          token    = os.environ["GH_TOKEN"]
+          username = os.environ["GH_USERNAME"]
+          today    = datetime.date.today()
+          year     = today.year
+
+          query = """
+          query($login:String!, $from:DateTime!, $to:DateTime!) {
+            user(login:$login) {
+              contributionsCollection(from:$from, to:$to) {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      contributionCount
+                      date
+                    }
+                  }
+                }
+              }
+            }
+          }
+          """
+          variables = {
+            "login": username,
+            "from":  f"{year}-01-01T00:00:00Z",
+            "to":    today.isoformat() + "T23:59:59Z",
+          }
+          body = json.dumps({"query": query, "variables": variables}).encode()
+          req = urllib.request.Request(
+              "https://api.github.com/graphql",
+              data=body,
+              headers={
+                  "Authorization": f"bearer {token}",
+                  "Content-Type":  "application/json",
+              },
+          )
+          with urllib.request.urlopen(req) as resp:
+              data = json.loads(resp.read())
+
+          cal   = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+          total = cal["totalContributions"]
+          weeks = cal["weeks"]
+
+          # Build month buckets
+          from collections import defaultdict
+          monthly = defaultdict(int)
+          all_days = []
+          for w in weeks:
+              for d in w["contributionDays"]:
+                  dt  = datetime.date.fromisoformat(d["date"])
+                  key = dt.strftime("%Y-%m")
+                  monthly[key] += d["contributionCount"]
+                  all_days.append((d["date"], d["contributionCount"]))
+
+          months_out = []
+          for key in sorted(monthly.keys()):
+              dt = datetime.date.fromisoformat(key + "-01")
+              months_out.append({
+                  "month": key,
+                  "label": dt.strftime("%b"),
+                  "count": monthly[key],
+              })
+
+          # Streak (look back from today)
+          sorted_days = sorted(all_days, reverse=True)
+          streak = 0
+          prev   = None
+          for date_str, count in sorted_days:
+              if count == 0:
+                  break
+              dt = datetime.date.fromisoformat(date_str)
+              if prev is None or (prev - dt).days == 1:
+                  streak += 1
+                  prev = dt
+              else:
+                  break
+
+          active_days = sum(1 for _, c in all_days if c > 0)
+          busiest     = max(all_days, key=lambda x: x[1], default=(today.isoformat(), 0))
+
+          # Graph weeks (raw counts, capped at 9)
+          graph_weeks = []
+          for w in weeks:
+              row = [min(d["contributionCount"], 9) for d in w["contributionDays"]]
+              # pad to 7 if short
+              while len(row) < 7:
+                  row.insert(0, 0)
+              graph_weeks.append(row)
+
+          # Load existing to preserve repos list
+          existing = {}
+          try:
+              with open("contributions.json") as f:
+                  existing = json.load(f)
+          except FileNotFoundError:
+              pass
+
+          out = {
+              "_note":    "Auto-refreshed daily by .github/workflows/refresh-contributions.yml",
+              "_updated": today.isoformat(),
+              "streak_days":    streak,
+              "active_days_ytd": active_days,
+              "busiest_day":    {"date": busiest[0], "count": busiest[1]},
+              "total_ytd":      total,
+              "months":         months_out,
+              "repos":          existing.get("repos", []),
+              "graph_weeks":    graph_weeks,
+          }
+          with open("contributions.json", "w") as f:
+              json.dump(out, f, indent=2)
+          print(f"✓ contributions.json written — {total} contributions, {streak}d streak")
+          PYEOF
+
+      # ── install Python deps (fonttools for pyftsubset) ──────────────────
+      - name: Install fonttools
+        run: pip install fonttools --quiet
+
+      # ── render the cards ────────────────────────────────────────────────
+      - name: Render SVG cards
+        run: python3 render_cards.py
+
+      # ── commit & push if anything changed ───────────────────────────────
+      - name: Commit and push updated cards
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add contributions.json cards/ README.md
+          git diff --cached --quiet || git commit -m "chore: refresh contribution cards [skip ci]"
+          git push

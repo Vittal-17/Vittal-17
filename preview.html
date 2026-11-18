@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>README Preview — Vittal J G / Vittal-17</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d1117;           /* GitHub dark background */
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px 80px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #e6edf3;
+  }
+
+  /* ── GitHub README container ─────────────────────────────────────────── */
+  .readme {
+    width: 100%;
+    max-width: 860px;
+    background: #0d1117;
+  }
+
+  /* ── header bar mimicking GitHub's README tab ────────────────────────── */
+  .gh-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px 6px 0 0;
+    font-size: 13px;
+    color: #8b949e;
+    margin-bottom: 0;
+  }
+  .gh-header svg { flex-shrink: 0; }
+  .gh-header strong { color: #e6edf3; }
+
+  /* ── README body ─────────────────────────────────────────────────────── */
+  .readme-body {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 32px;
+  }
+
+  /* ── centre-aligned div (mirrors <div align="center">) ──────────────── */
+  .center { text-align: center; }
+
+  /* ── card images ─────────────────────────────────────────────────────── */
+  .card-full {
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  /* ── links row — 3 tiles at 32.5% each ──────────────────────────────── */
+  .links-row {
+    display: flex;
+    gap: 1.25%;
+    margin-bottom: 10px;
+  }
+  .links-row a { flex: 0 0 32.5%; display: block; }
+  .links-row img { width: 100%; border-radius: 6px; display: block; }
+
+  /* ── section spacer ──────────────────────────────────────────────────── */
+  .gap { margin-bottom: 10px; }
+
+  /* ── caption links (mimicking GitHub markdown links) ────────────────── */
+  .caption {
+    font-size: 13px;
+    text-align: center;
+    color: #8b949e;
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+  .caption a { color: #58a6ff; text-decoration: none; }
+  .caption a:hover { text-decoration: underline; }
+
+  /* ── <sub> tag ───────────────────────────────────────────────────────── */
+  sub {
+    font-size: 11px;
+    color: #8b949e;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── floating label ──────────────────────────────────────────────────── */
+  .preview-label {
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    background: #d7ff68;
+    color: #171916;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.4);
+    z-index: 999;
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-label">README PREVIEW</div>
+
+<div class="readme">
+
+  <!-- GitHub-style README tab -->
+  <div class="gh-header">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="#8b949e">
+      <path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.5A3.744 3.744 0 0 1 11.253 1H15.25a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.012a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.07 0l-.622-.621A2.25 2.25 0 0 0 6.761 13H2.75a.75.75 0 0 1-.75-.75Z"/>
+    </svg>
+    <strong>README.md</strong>
+  </div>
+
+  <!-- README body -->
+  <div class="readme-body">
+    <div class="center">
+
+      <!-- 01 hero -->
+      <a href="https://vittal-dev.vercel.app/">
+        <img class="card-full" src="./cards/01-hero.svg"
+             alt="Vittal J G — Big ideas. Built for real."/>
+      </a>
+
+      <!-- 02 links row: three separate SVGs at 32.5% each -->
+      <a href="https://vittal-dev.vercel.app/"><img src="./cards/02-link-portfolio.svg" width="32.5%" alt="Portfolio ↗"/></a>&nbsp;<a href="https://github.com/Vittal-17"><img src="./cards/02-link-github.svg" width="32.5%" alt="GitHub ↗"/></a>&nbsp;<a href="https://www.linkedin.com/in/vittal-dev/"><img src="./cards/02-link-linkedin.svg" width="32.5%" alt="LinkedIn ↗"/></a>
+
+      <!-- 03 chart -->
+      <img class="card-full gap" src="./cards/03-chart.svg"
+           alt="Contributions per month"/>
+
+      <!-- 04 repos -->
+      <a href="https://github.com/Vittal-17/Jobpilot">
+        <img class="card-full" src="./cards/04-repo-01-jobpilot.svg" alt="Jobpilot"/>
+      </a>
+      <a href="https://github.com/Vittal-17/CYPHR-RAG">
+        <img class="card-full" src="./cards/04-repo-02-cyphr-rag.svg" alt="CYPHR-RAG"/>
+      </a>
+      <a href="https://github.com/Vittal-17/EazyShop">
+        <img class="card-full" src="./cards/04-repo-03-eazyshop.svg" alt="EazyShop"/>
+      </a>
+      <a href="https://github.com/Vittal-17/Krypton">
+        <img class="card-full" src="./cards/04-repo-04-krypton.svg" alt="Krypton"/>
+      </a>
+      <a href="https://github.com/Vittal-17/RoofWorth">
+        <img class="card-full" src="./cards/04-repo-05-roofworth.svg" alt="RoofWorth"/>
+      </a>
+
+      <!-- 05 graph -->
+      <img class="card-full" src="./cards/05-graph.svg"
+           alt="Contribution graph"/>
+
+    </div><!-- .center -->
+
+    <!-- footer links -->
+    <p class="caption">
+      <a href="https://vittal-dev.vercel.app/"><strong>Portfolio ↗</strong></a> &nbsp;·&nbsp;
+      <a href="https://github.com/Vittal-17?tab=repositories"><strong>Repositories ↗</strong></a> &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/vittal-dev/"><strong>LinkedIn ↗</strong></a> &nbsp;·&nbsp;
+      <a href="mailto:vitthaljg@gmail.com"><strong>Contact ↗</strong></a>
+    </p>
+    <p class="center">
+      <sub>FULL-STACK ENGINEERING · PYTHON BACKENDS · AI / RAG · AUTOMATION · CLOUD</sub>
+    </p>
+
+  </div><!-- .readme-body -->
+</div><!-- .readme -->
+
+</body>
+</html>
