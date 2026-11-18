@@ -1,41 +1,103 @@
 {
-  "_note": "Auto-refreshed daily by .github/workflows/refresh-contributions.yml",
+  "_note": "Auto-refreshed from real GitHub activity",
   "_updated": "2026-11-18",
-  "streak_days": 24,
-  "active_days_ytd": 187,
-  "busiest_day": {"date": "2026-10-14", "count": 17},
-  "total_ytd": 843,
+  "streak_days": 1,
+  "active_days_ytd": 71,
+  "busiest_day": {
+    "date": "2026-06-25",
+    "count": 20
+  },
+  "total_ytd": 333,
   "months": [
-    {"month": "2026-01", "label": "Jan", "count": 42},
-    {"month": "2026-02", "label": "Feb", "count": 61},
-    {"month": "2026-03", "label": "Mar", "count": 78},
-    {"month": "2026-04", "label": "Apr", "count": 55},
-    {"month": "2026-05", "label": "May", "count": 93},
-    {"month": "2026-06", "label": "Jun", "count": 70},
-    {"month": "2026-07", "label": "Jul", "count": 112},
-    {"month": "2026-08", "label": "Aug", "count": 88},
-    {"month": "2026-09", "label": "Sep", "count": 65},
-    {"month": "2026-10", "label": "Oct", "count": 101},
-    {"month": "2026-11", "label": "Nov", "count": 78}
+    {
+      "month": "2025-12",
+      "label": "Dec",
+      "count": 0
+    },
+    {
+      "month": "2026-01",
+      "label": "Jan",
+      "count": 0
+    },
+    {
+      "month": "2026-02",
+      "label": "Feb",
+      "count": 0
+    },
+    {
+      "month": "2026-03",
+      "label": "Mar",
+      "count": 0
+    },
+    {
+      "month": "2026-04",
+      "label": "Apr",
+      "count": 0
+    },
+    {
+      "month": "2026-05",
+      "label": "May",
+      "count": 0
+    },
+    {
+      "month": "2026-06",
+      "label": "Jun",
+      "count": 29
+    },
+    {
+      "month": "2026-07",
+      "label": "Jul",
+      "count": 20
+    },
+    {
+      "month": "2026-08",
+      "label": "Aug",
+      "count": 37
+    },
+    {
+      "month": "2026-09",
+      "label": "Sep",
+      "count": 186
+    },
+    {
+      "month": "2026-10",
+      "label": "Oct",
+      "count": 32
+    },
+    {
+      "month": "2026-11",
+      "label": "Nov",
+      "count": 28
+    }
   ],
   "repos": [
     {
       "name": "Jobpilot",
-      "description": "Autonomous job intelligence — discovery, deduplication, enrichment, scoring & alerts.",
+      "description": "Autonomous job intelligence \u2014 discovery, deduplication, enrichment, scoring & alerts.",
       "url": "https://github.com/Vittal-17/Jobpilot",
       "live": "https://jobpilot.cfd",
       "stars": 12,
       "language": "Python",
-      "topics": ["FastAPI", "PostgreSQL", "React", "Oracle Cloud"]
+      "topics": [
+        "FastAPI",
+        "PostgreSQL",
+        "React",
+        "Oracle Cloud"
+      ]
     },
     {
       "name": "CYPHR-RAG",
-      "description": "Document-grounded AI with cited answers — tenant-aware PDF ingestion & vector search.",
+      "description": "Document-grounded AI with cited answers \u2014 tenant-aware PDF ingestion & vector search.",
       "url": "https://github.com/Vittal-17/CYPHR-RAG",
       "live": "https://cyphr-rag.vercel.app/",
       "stars": 9,
       "language": "Python",
-      "topics": ["RAG", "MongoDB Atlas", "FastAPI", "Next.js"]
+      "topics": [
+        "RAG",
+        "MongoDB Atlas",
+        "FastAPI",
+        "Next.js"
+      ]
     },
     {
       "name": "EazyShop",
@@ -44,80 +106,518 @@
       "live": "https://eazyshop.cfd",
       "stars": 7,
       "language": "Python",
-      "topics": ["Django REST", "React", "PostgreSQL", "Razorpay"]
+      "topics": [
+        "Django REST",
+        "React",
+        "PostgreSQL",
+        "Razorpay"
+      ]
     },
     {
       "name": "Krypton",
-      "description": "Minimal agency site — expressive layouts, Tailwind CSS, and smooth animations.",
+      "description": "Minimal agency site \u2014 expressive layouts, Tailwind CSS, and smooth animations.",
       "url": "https://github.com/Vittal-17/Krypton",
       "live": "https://krypton-site.vercel.app/",
       "stars": 5,
       "language": "TypeScript",
-      "topics": ["Next.js", "Tailwind CSS", "Vercel"]
+      "topics": [
+        "Next.js",
+        "Tailwind CSS",
+        "Vercel"
+      ]
     },
     {
       "name": "RoofWorth",
-      "description": "ML house price predictor — Random Forest regression with R² ≈ 0.81 on held-out data.",
+      "description": "ML house price predictor \u2014 Random Forest regression with R\u00b2 \u2248 0.81 on held-out data.",
       "url": "https://github.com/Vittal-17/RoofWorth",
       "live": "https://aihouseprice.vercel.app/",
       "stars": 6,
       "language": "Python",
-      "topics": ["Scikit-learn", "Pandas", "Flask", "Vercel"]
+      "topics": [
+        "Scikit-learn",
+        "Pandas",
+        "Flask",
+        "Vercel"
+      ]
     }
   ],
   "graph_weeks": [
-    [0,1,2,1,0,1,3],
-    [1,2,4,3,2,1,2],
-    [2,3,5,4,3,2,3],
-    [1,2,3,2,1,2,4],
-    [3,4,6,5,4,3,4],
-    [2,3,4,3,2,3,5],
-    [4,5,7,6,5,4,5],
-    [3,4,5,4,3,4,6],
-    [5,6,8,7,6,5,6],
-    [4,5,6,5,4,5,7],
-    [6,7,9,8,7,6,7],
-    [5,6,7,6,5,6,8],
-    [3,4,5,4,3,4,6],
-    [2,3,4,3,2,3,5],
-    [4,5,6,5,4,5,7],
-    [3,4,5,4,3,4,6],
-    [5,6,8,7,6,5,6],
-    [4,5,6,5,4,5,7],
-    [6,7,9,8,7,6,7],
-    [5,6,7,6,5,6,8],
-    [4,5,6,5,4,5,7],
-    [3,4,5,4,3,4,6],
-    [2,3,4,3,2,3,5],
-    [1,2,3,2,1,2,4],
-    [0,1,2,1,0,1,2],
-    [1,2,3,2,1,2,4],
-    [2,3,5,4,3,2,3],
-    [3,4,6,5,4,3,4],
-    [4,5,7,6,5,4,5],
-    [5,6,8,7,6,5,6],
-    [6,7,9,8,7,6,7],
-    [5,6,7,6,5,6,8],
-    [4,5,6,5,4,5,7],
-    [3,4,5,4,3,4,6],
-    [2,3,4,3,2,3,5],
-    [1,2,3,2,1,2,4],
-    [0,1,2,1,0,1,2],
-    [1,2,4,3,2,1,2],
-    [2,3,5,4,3,2,3],
-    [3,4,6,5,4,3,4],
-    [4,5,7,6,5,4,5],
-    [5,6,8,7,6,5,6],
-    [6,7,9,8,7,6,7],
-    [5,6,8,7,6,5,6],
-    [4,5,7,6,5,4,5],
-    [3,4,6,5,4,3,4],
-    [2,3,5,4,3,2,3],
-    [1,2,3,2,1,2,4],
-    [0,1,2,1,0,1,2],
-    [1,2,3,2,1,2,3],
-    [0,0,1,2,3,4,5],
-    [2,3,4,5,6,7,8],
-    [1,2,3,4,5,6,7]
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      20,
+      3,
+      4,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      3,
+      1,
+      0,
+      1,
+      2
+    ],
+    [
+      5,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      2
+    ],
+    [
+      1,
+      4,
+      5,
+      0,
+      4,
+      0,
+      3
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      4,
+      5
+    ],
+    [
+      0,
+      4,
+      9,
+      4,
+      7,
+      1,
+      8
+    ],
+    [
+      13,
+      2,
+      6,
+      4,
+      9,
+      0,
+      17
+    ],
+    [
+      18,
+      11,
+      7,
+      16,
+      5,
+      20,
+      4
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      8,
+      9,
+      2,
+      10,
+      2,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      1,
+      0,
+      0,
+      7,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      1,
+      3,
+      3,
+      6,
+      4
+    ],
+    [
+      0,
+      5,
+      0,
+      3,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ]
   ]
 }
