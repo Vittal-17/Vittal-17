@@ -1,0 +1,22 @@
+{
+  "_updated": "2026-11-19",
+  "login": "Vittal-17",
+  "created_at": "2023-05-28",
+  "public_repos": 10,
+  "followers": 1,
+  "stars": 10,
+  "languages": {
+    "Python": 2640067,
+    "Jupyter Notebook": 879038,
+    "JavaScript": 819817,
+    "TypeScript": 510595,
+    "CSS": 141806,
+    "HTML": 121282,
+    "Shell": 10596,
+    "Dockerfile": 919,
+    "Mako": 704,
+    "Procfile": 124
+  },
+  "language_basis": "Bytes across public, non-fork repositories",
+  "source_repos": 10
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="490" height="185" viewBox="0 0 490 185" role="img" aria-labelledby="title desc">
+<title id="title">Profile Signal: stars, contributions, repositories and followers</title>
+<desc id="desc">Public GitHub data for Vittal-17. Generated locally; no external image service required.</desc>
+<defs>
+ <linearGradient id="base" x2="0.8" y2="1"><stop stop-color="#1b242e"/><stop offset="1" stop-color="#20232c"/></linearGradient>
+ <radialGradient id="blue"><stop stop-color="#408ee6" stop-opacity=".34"/><stop offset="1" stop-color="#408ee6" stop-opacity="0"/></radialGradient>
+ <radialGradient id="green"><stop stop-color="#22b86a" stop-opacity=".21"/><stop offset="1" stop-color="#22b86a" stop-opacity="0"/></radialGradient>
+ <radialGradient id="violet"><stop stop-color="#a569e8" stop-opacity=".32"/><stop offset="1" stop-color="#a569e8" stop-opacity="0"/></radialGradient>
+ <radialGradient id="cyan"><stop stop-color="#009cb8" stop-opacity=".23"/><stop offset="1" stop-color="#009cb8" stop-opacity="0"/></radialGradient>
+ <clipPath id="clip"><rect x="1" y="1" width="488" height="183" rx="23" fill="white" stroke="none" /></clipPath>
+</defs>
+<style>text{font-family:Arial,Helvetica,sans-serif}.snake-still{display:none}@media(prefers-reduced-motion:reduce){.snake-motion{display:none}.snake-still{display:inline}}</style>
+<rect x="1" y="1" width="488" height="183" rx="23" fill="url(#base)" stroke="#478cd1" stroke-opacity=".85"/>
+<g clip-path="url(#clip)">
+ <ellipse cx="93.1" cy="18.5" rx="156.8" ry="129.5" fill="url(#blue)"/>
+ <ellipse cx="382.2" cy="37.0" rx="161.70000000000002" ry="159.1" fill="url(#green)"/>
+ <ellipse cx="313.6" cy="203.50000000000003" rx="186.2" ry="120.25" fill="url(#violet)"/>
+ <ellipse cx="499.8" cy="166.5" rx="147.0" ry="129.5" fill="url(#cyan)"/>
+</g>
+
+<text x="31" y="39" font-size="21" fill="#e3eaf2" font-weight="700" text-anchor="start" >Profile Signal</text><text x="31" y="57" font-size="10" fill="#909ba7" font-weight="400" text-anchor="start" >Updated 19 Nov 2026</text><rect x="31" y="70" width="101" height="84" rx="12" fill="#11181c" stroke="#3c6386" fill-opacity=".88"/><text x="43" y="91" font-size="10" fill="#909ba7" font-weight="400" text-anchor="start" >Stars</text><text x="43" y="124" font-size="25" fill="#58a6ff" font-weight="700" text-anchor="start" >10</text><rect x="43" y="136" width="77" height="4" rx="2" fill="#29313a" stroke="none" /><rect x="43" y="136" width="13" height="4" rx="2" fill="#58a6ff" stroke="none" /><rect x="139" y="70" width="101" height="84" rx="12" fill="#11181c" stroke="#3c6386" fill-opacity=".88"/><text x="151" y="91" font-size="10" fill="#909ba7" font-weight="400" text-anchor="start" >Contributions</text><text x="151" y="124" font-size="25" fill="#42cfdb" font-weight="700" text-anchor="start" >338</text><rect x="151" y="136" width="77" height="4" rx="2" fill="#29313a" stroke="none" /><rect x="151" y="136" width="13" height="4" rx="2" fill="#42cfdb" stroke="none" /><rect x="247" y="70" width="101" height="84" rx="12" fill="#11181c" stroke="#3c6386" fill-opacity=".88"/><text x="259" y="91" font-size="10" fill="#909ba7" font-weight="400" text-anchor="start" >Repos</text><text x="259" y="124" font-size="25" fill="#b482ef" font-weight="700" text-anchor="start" >10</text><rect x="259" y="136" width="77" height="4" rx="2" fill="#29313a" stroke="none" /><rect x="259" y="136" width="13" height="4" rx="2" fill="#b482ef" stroke="none" /><rect x="355" y="70" width="101" height="84" rx="12" fill="#11181c" stroke="#3c6386" fill-opacity=".88"/><text x="367" y="91" font-size="10" fill="#909ba7" font-weight="400" text-anchor="start" >Followers</text><text x="367" y="124" font-size="25" fill="#4bd282" font-weight="700" text-anchor="start" >1</text><rect x="367" y="136" width="77" height="4" rx="2" fill="#29313a" stroke="none" /><rect x="367" y="136" width="13" height="4" rx="2" fill="#4bd282" stroke="none" />
+</svg>

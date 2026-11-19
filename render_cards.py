@@ -1,965 +1,405 @@
 #!/usr/bin/env python3
+"""Build the profile's SVG cards from public GitHub data (Python stdlib only).
+
+Run: python3 render_cards.py             # refresh public data and render
+     python3 render_cards.py --offline   # render the saved snapshot
+     STATIC=1 python3 render_cards.py --offline  # no motion
+README.md is hand-authored and is never modified by this script.
 """
-render_cards.py — Vittal J G / GitHub Profile README Card Generator
-Renders clean, editorial SVG cards matching vittal-dev.vercel.app tokens.
+from __future__ import annotations
 
-Design tokens:
-  Background gradient : #EEFABD → #F7F7EF → #EEF1FB  (horizontal)
-  Accent (lime)       : #D7FF68  (highlight fill)
-  Accent (olive)      : #92B346  (active status indicator, left bar)
-  Periwinkle          : #CEDAFF  (secondary accent chip)
-  Card surface        : #FFFFFD  stroke #DADDD1
-  Inner surface       : #F8F9F5  stroke #E4E5DB
-  Dark surface        : #141812 → #171916 (graph card)
-  Body text           : #171916
-  Muted text          : #60665F
-  Grid lines          : #D1D5C6
-  Sans font           : Arial, Helvetica, sans-serif
-  Mono font           : ui-monospace, SFMono-Regular, Consolas, monospace
-
-Live Data:
-  - Fetches real-time contribution data directly from GitHub (https://github.com/users/Vittal-17/contributions)
-  - Accurate monthly breakdown, streaks, active days, and 53-week heatmap matrix
-  - Offline fallback to contributions.json
-
-Animations:
-  - Silky-smooth 60fps GPU-accelerated motion (no CPU color raster thrashing)
-  - Deliberate pacing (1.5s - 2.5s reveals + calm, rhythmic ambient living loops)
-  - Zero cheap neon laser slop
-  - Full prefers-reduced-motion safety and STATIC=1 capture mode
-"""
-
+import argparse
+from collections import Counter
+from datetime import date, datetime, timedelta, timezone
+from html import escape
+from html.parser import HTMLParser
 import json
 import os
-import sys
-import subprocess
-import tempfile
-import base64
-import textwrap
-import urllib.request
-import re
-from datetime import datetime, date, timedelta
-from collections import defaultdict
 from pathlib import Path
+import re
+import sys
+from urllib.request import Request, urlopen
 
-# ─────────────────────────── config ────────────────────────────────────────
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / 'contributions.json'
+PROFILE = ROOT / 'profile-data.json'
+OUT = ROOT / 'cards'
+USER = 'Vittal-17'
+STATIC = os.environ.get('STATIC') == '1'
+BLUE = '#58a6ff'
+MUTED = '#909ba7'
+TEXT = '#e3eaf2'
+PURPLE = '#c792ea'
+LEVELS = ['#232b32', '#28485e', '#31658c', '#4089c8', BLUE]
+LANG_COLORS = {'Python': '#5197c3', 'Jupyter Notebook': '#ef7651',
+               'JavaScript': '#f1e05a', 'TypeScript': '#4b8dd0',
+               'CSS': '#a365d9', 'HTML': '#e76a47', 'Other': '#8b949e'}
 
-ROOT    = Path(__file__).parent
-DATA    = ROOT / "contributions.json"
-OUT     = ROOT / "cards"
-STATIC  = os.environ.get("STATIC", "0") == "1"
-W       = 1280
 
-# ─────────── design tokens ─────────────────────────────────────────────────
-LIME      = "#D7FF68"
-OLIVE     = "#92B346"
-PERIW     = "#CEDAFF"
-CARD_BG   = "#FFFFFD"
-CARD_STR  = "#DADDD1"
-INNER_BG  = "#F8F9F5"
-INNER_STR = "#E4E5DB"
-DARK      = "#171916"
-BODY      = "#171916"
-MUTED     = "#60665F"
-GRID      = "#D1D5C6"
-SANS      = "Arial, Helvetica, sans-serif"
-MONO      = "ui-monospace, SFMono-Regular, Consolas, monospace"
+def request(url: str, *, api: bool = False) -> str:
+    headers = {'User-Agent': f'{USER}-profile-readme'}
+    if api:
+        headers['Accept'] = 'application/vnd.github+json'
+        headers['X-GitHub-Api-Version'] = '2022-11-28'
+        # Never send credentials to the HTML endpoint or third-party hosts.
+        token = os.environ.get('GH_TOKEN') or os.environ.get('GITHUB_TOKEN')
+        if token:
+            headers['Authorization'] = f'Bearer {token}'
+    with urlopen(Request(url, headers=headers), timeout=25) as response:
+        return response.read().decode('utf-8')
 
-FONT_EMBED_CHARS = (
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    "0123456789.,·/—:()↗·%#@!?-_*★[]{}<>\n █"
-)
 
-# ─────────── Live Data Fetcher ──────────────────────────────────────────────
+def api(path: str):
+    return json.loads(request(f'https://api.github.com/{path}', api=True))
 
-def fetch_and_load_data(username: str = "Vittal-17") -> dict:
-    """Fetch live contribution data directly from GitHub."""
-    existing = {}
-    if DATA.exists():
-        try:
-            with open(DATA) as f:
-                existing = json.load(f)
-        except Exception:
-            pass
 
-    try:
-        url = f"https://github.com/users/{username}/contributions"
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            html = resp.read().decode("utf-8")
+def read_json(path: Path) -> dict:
+    return json.loads(path.read_text()) if path.exists() else {}
 
-        td_chunks = re.findall(r'<td[^>]*class="[^"]*ContributionCalendar-day[^"]*"[^>]*>', html)
-        tt_pattern = re.compile(r'<tool-tip[^>]*for="([^"]+)"[^>]*>([^<]+)</tool-tip>')
-        tooltips = dict(tt_pattern.findall(html))
 
-        by_date = {}
-        monthly_map = defaultdict(int)
+def save_json(path: Path, data: dict):
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
 
-        for td in td_chunks:
-            date_m = re.search(r'data-date="([^"]+)"', td)
-            lvl_m = re.search(r'data-level="([^"]+)"', td)
-            id_m = re.search(r'id="([^"]+)"', td)
-            if date_m and lvl_m and id_m:
-                d_str = date_m.group(1)
-                lvl = int(lvl_m.group(1))
-                cid = id_m.group(1)
-                tt_text = tooltips.get(cid, "")
-                cnt_m = re.search(r"(\d+)\s+contribution", tt_text)
-                count = int(cnt_m.group(1)) if cnt_m else 0
-                by_date[d_str] = {
-                    "count": count,
-                    "level": lvl,
-                    "desc": tt_text,
+
+class CalendarParser(HTMLParser):
+    """Associate cells and tooltip counts independently of HTML attribute order."""
+    def __init__(self):
+        super().__init__()
+        self.cells = {}
+        self.tooltips = {}
+        self.target = None
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if 'ContributionCalendar-day' in attrs.get('class', '').split():
+            if attrs.get('data-date') and attrs.get('id'):
+                self.cells[attrs['id']] = {
+                    'date': attrs['data-date'],
+                    'level': int(attrs.get('data-level', 0)),
                 }
-                monthly_map[d_str[:7]] += count
+        if tag == 'tool-tip':
+            self.target = attrs.get('for')
+            if self.target:
+                self.tooltips[self.target] = ''
 
-        sorted_dates = sorted(by_date.keys())
-        if sorted_dates:
-            start_date = datetime.strptime(sorted_dates[0], "%Y-%m-%d").date()
-            end_date = datetime.strptime(sorted_dates[-1], "%Y-%m-%d").date()
+    def handle_data(self, data):
+        if self.target:
+            self.tooltips[self.target] += data
 
-            cur_date = start_date - timedelta(days=start_date.weekday())
-            weeks_grid = []
-            while cur_date <= end_date:
-                week_col = []
-                for _ in range(7):
-                    ds = cur_date.strftime("%Y-%m-%d")
-                    week_col.append(by_date[ds]["count"] if ds in by_date else 0)
-                    cur_date += timedelta(days=1)
-                weeks_grid.append(week_col)
+    def handle_endtag(self, tag):
+        if tag == 'tool-tip':
+            self.target = None
 
-            if len(weeks_grid) > 53:
-                weeks_grid = weeks_grid[-53:]
 
-            months_out = []
-            for m_key in sorted(monthly_map.keys())[-12:]:
-                dt = datetime.strptime(m_key + "-01", "%Y-%m-%d")
-                months_out.append({
-                    "month": m_key,
-                    "label": dt.strftime("%b"),
-                    "count": monthly_map[m_key],
-                })
-
-            streak = 0
-            for d in reversed(sorted_dates):
-                if by_date[d]["count"] > 0:
-                    streak += 1
-                else:
-                    if streak == 0 and d == sorted_dates[-1]:
-                        continue
-                    break
-
-            active_days = sum(1 for d in sorted_dates if by_date[d]["count"] > 0)
-            busiest = max(sorted_dates, key=lambda d: by_date[d]["count"], default=sorted_dates[-1])
-            total_ytd = sum(by_date[d]["count"] for d in sorted_dates)
-
-            live_data = {
-                "_note": "Auto-refreshed from real GitHub activity",
-                "_updated": datetime.now().strftime("%Y-%m-%d"),
-                "streak_days": streak,
-                "active_days_ytd": active_days,
-                "busiest_day": {"date": busiest, "count": by_date[busiest]["count"]},
-                "total_ytd": total_ytd,
-                "months": months_out,
-                "repos": existing.get("repos", []),
-                "graph_weeks": weeks_grid,
-            }
-
-            with open(DATA, "w") as f:
-                json.dump(live_data, f, indent=2)
-            print(f"   ✓ Live GitHub activity fetched: {total_ytd} contributions across {active_days} active days")
-            return live_data
-
-    except Exception as e:
-        print(f"   ⚠ Live GitHub fetch fallback ({e}), using local contributions.json", file=sys.stderr)
-
-    return existing
-
-def esc(s: str) -> str:
-    return (s.replace("&", "&amp;")
-             .replace("<", "&lt;")
-             .replace(">", "&gt;")
-             .replace('"', "&quot;"))
-
-def wrap_text(text: str, max_chars: int) -> list[str]:
-    return textwrap.wrap(text, max_chars)
-
-# ─────────── Font Subsetting ───────────────────────────────────────────────
-
-def _find_system_font() -> Path | None:
-    candidates = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
-        "/usr/share/fonts/opentype/noto/NotoSans-Regular.ttf",
-        "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf",
-        "/usr/share/fonts/TTF/DejaVuSans.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-    ]
-    for c in candidates:
-        p = Path(c)
-        if p.exists():
-            return p
-    try:
-        out = subprocess.check_output(
-            ["fc-list", ":spacing=proportional", "--format=%{file}\n"],
-            text=True, stderr=subprocess.DEVNULL
-        ).strip().splitlines()
-        for line in out:
-            line = line.strip()
-            if line.lower().endswith((".ttf", ".otf")) and "Bold" not in line:
-                return Path(line)
-    except Exception:
-        pass
-    return None
-
-def build_font_data_uri() -> str | None:
-    src = _find_system_font()
-    if src is None:
-        return None
-    with tempfile.TemporaryDirectory() as td:
-        out_woff = Path(td) / "subset.woff"
-        glyph_str = "".join(sorted(set(FONT_EMBED_CHARS)))
-        try:
-            subprocess.check_call([
-                "pyftsubset", str(src),
-                f"--text={glyph_str}",
-                "--flavor=woff",
-                f"--output-file={out_woff}",
-                "--no-hinting",
-                "--desubroutinize",
-            ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        except subprocess.CalledProcessError:
-            return None
-        raw = out_woff.read_bytes()
-        b64 = base64.b64encode(raw).decode()
-        return f"data:font/woff;base64,{b64}"
-
-# ─────────── SVG Helpers ───────────────────────────────────────────────────
-
-def svg_open(width: int, height: int, card_id: str) -> str:
-    return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" '
-        f'width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
-        f'role="img" aria-label="{esc(card_id)}">\n'
-    )
-
-def svg_close() -> str:
-    return "</svg>"
-
-def defs_block(font_uri: str | None, extra_defs: str = "") -> str:
-    font_face = ""
-    if font_uri:
-        font_face = f"""
-    @font-face {{
-      font-family: 'VittalUI';
-      src: url('{font_uri}') format('woff');
-      font-weight: 400 800;
-      font-style: normal;
-    }}"""
-
-    anim_css = "" if STATIC else """
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; }
-      animate, animateTransform { display: none !important; }
-    }"""
-
-    return f"""<defs>
-  <style>{font_face}{anim_css}
-  </style>
-  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%"   stop-color="#EEFABD"/>
-    <stop offset="43%"  stop-color="#F7F7EF"/>
-    <stop offset="100%" stop-color="#EEF1FB"/>
-  </linearGradient>
-  <linearGradient id="bgGradDark" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%"   stop-color="#141812"/>
-    <stop offset="50%"  stop-color="#171916"/>
-    <stop offset="100%" stop-color="#1B1E18"/>
-  </linearGradient>
-  <radialGradient id="orbGrad">
-    <stop offset="0%"   stop-color="#DEFF83" stop-opacity=".75"/>
-    <stop offset="100%" stop-color="#DEFF83" stop-opacity="0"/>
-  </radialGradient>
-  <filter id="cardShadow" x="-5%" y="-5%" width="115%" height="130%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
-    <feOffset dy="4"/>
-    <feComponentTransfer><feFuncA type="linear" slope=".08"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-{extra_defs}
-</defs>
-"""
-
-def grid_lines(width: int, height: int, step: int = 54) -> str:
-    lines = []
-    x = 0
-    while x <= width:
-        lines.append(f'<line x1="{x}" y1="0" x2="{x}" y2="{height}" stroke="{GRID}" stroke-width="0.9" opacity="0.15"/>')
-        x += step
-    y = 0
-    while y <= height:
-        lines.append(f'<line x1="0" y1="{y}" x2="{width}" y2="{y}" stroke="{GRID}" stroke-width="0.9" opacity="0.15"/>')
-        y += step
-    return "\n".join(lines)
-
-def accent_bar(height: int) -> str:
-    return f'<line x1="40" y1="0" x2="40" y2="{height}" stroke="{OLIVE}" stroke-width="4" opacity="0.95"/>'
-
-def logo_badge(x: int = 53, y: int = 28) -> str:
-    return f"""
-  <rect x="{x}" y="{y}" width="42" height="42" rx="12" fill="{LIME}"/>
-  <text x="{x+21}" y="{y+29}" font-family="{SANS}" font-size="24" font-weight="800"
-        fill="{DARK}" text-anchor="middle">V</text>
-  <text x="{x+52}" y="{y+17}" font-family="{SANS}" font-size="19" font-weight="800"
-        fill="{DARK}" letter-spacing="0.35">VITTAL J G</text>
-  <text x="{x+52}" y="{y+36}" font-family="{MONO}" font-size="10" font-weight="600"
-        fill="{MUTED}" letter-spacing="0.9">FULL-STACK ENGINEER / BENGALURU</text>
-"""
-
-def status_dot(cx: int, cy: int, color: str = OLIVE) -> str:
-    """Clean status dot with a calm, visible breathing pulse."""
-    if STATIC:
-        return f'<circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}"/>'
-    return f"""
-  <circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}"/>
-  <circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}" opacity="0.6">
-    <animate attributeName="r" values="4.5;13" dur="2.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-"""
-
-# ─────────── Card 01 · Hero ────────────────────────────────────────────────
-
-def render_hero(data: dict, font_uri: str | None) -> str:
-    H = 420
-
-    out = [svg_open(W, H, "Vittal J G — Big ideas. Built for real.")]
-    out.append(defs_block(font_uri))
-    out.append(f'<rect width="{W}" height="{H}" fill="url(#bgGrad)"/>')
-    out.append(grid_lines(W, H))
-
-    # Ambient backdrop orb
-    out.append(f'<ellipse cx="640" cy="{H}" rx="500" ry="240" fill="url(#orbGrad)" opacity="0.6"/>')
-
-    out.append(accent_bar(H))
-    out.append(logo_badge())
-    out.append(f'<line x1="53" y1="90" x2="{W-50}" y2="90" stroke="{CARD_STR}" stroke-width="1"/>')
-
-    # Subtitle tag with blinking terminal cursor
-    cursor_blink = "" if STATIC else f'<tspan fill="{OLIVE}">█<animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/></tspan>'
-    out.append(
-        f'<text x="59" y="131" font-family="{MONO}" font-size="13" font-weight="700" '
-        f'fill="{MUTED}" letter-spacing="1.8">01 / SOFTWARE · SYSTEMS · AI {cursor_blink}</text>'
-    )
-
-    # Big ideas.
-    out.append(
-        f'<text x="54" y="225" font-family="{SANS}" font-size="96" font-weight="800" '
-        f'fill="{DARK}" letter-spacing="-4.7">Big ideas.</text>'
-    )
-
-    # Built for real. with smooth, deliberate 1.6s Highlighter marker wipe
-    if STATIC:
-        out.append(f'<rect x="53" y="258" width="650" height="94" rx="12" fill="{LIME}"/>')
-    else:
-        out.append(f"""
-  <!-- Highlighter marker wipe effect (1.6s deliberate reveal) -->
-  <rect x="53" y="258" width="650" height="94" rx="12" fill="{LIME}">
-    <animate attributeName="width" from="0" to="650" dur="1.6s" begin="0.2s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <animate attributeName="fill-opacity" values="1;0.88;1" dur="4.5s" begin="2.0s" repeatCount="indefinite"/>
-  </rect>
-""")
-    out.append(
-        f'<text x="62" y="336" font-family="{SANS}" font-size="88" font-weight="800" '
-        f'fill="{DARK}" letter-spacing="-5.0">Built for real.</text>'
-    )
-
-    # Supporting copy
-    out.append(
-        f'<text x="57" y="378" font-family="{SANS}" font-size="21" font-weight="600" '
-        f'fill="{DARK}">Thoughtful interfaces. Serious engineering.</text>'
-    )
-    out.append(
-        f'<text x="57" y="406" font-family="{SANS}" font-size="17" font-weight="400" '
-        f'fill="{MUTED}">From the first database table to the final interaction.</text>'
-    )
-
-    # Status pill with calm breathing pulse
-    out.append(f'<rect x="{W-280}" y="28" width="232" height="34" rx="17" fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>')
-    out.append(status_dot(W - 263, 45, color=OLIVE))
-    out.append(f'<text x="{W-247}" y="50" font-family="{MONO}" font-size="13" font-weight="700" fill="{DARK}" letter-spacing="1.0">AVAILABLE FOR HIRE</text>')
-
-    out.append(svg_close())
-    return "".join(out)
-
-# ─────────── Card 02 · Link Tiles (3 tiles at 32.5% each) ───────────────────
-
-LINKS = [
-    {"label": "PORTFOLIO", "sub": "vittal-dev.vercel.app",          "url": "https://vittal-dev.vercel.app/",          "accent": LIME,  "slug": "portfolio"},
-    {"label": "GITHUB",    "sub": "github.com/Vittal-17",           "url": "https://github.com/Vittal-17",            "accent": PERIW, "slug": "github"},
-    {"label": "LINKEDIN",  "sub": "linkedin.com/in/vittal-dev",     "url": "https://www.linkedin.com/in/vittal-dev/", "accent": LIME,  "slug": "linkedin"},
-]
-
-def render_link_tile(lnk: dict, font_uri: str | None) -> str:
-    TW, TH = 420, 140
-
-    out = [svg_open(TW, TH, lnk["label"])]
-    out.append(defs_block(font_uri))
-    out.append(f'<rect width="{TW}" height="{TH}" fill="url(#bgGrad)"/>')
-
-    for x in range(0, TW + 1, 42):
-        out.append(f'<line x1="{x}" y1="0" x2="{x}" y2="{TH}" stroke="{GRID}" stroke-width="0.9" opacity="0.15"/>')
-    for y in range(0, TH + 1, 42):
-        out.append(f'<line x1="0" y1="{y}" x2="{TW}" y2="{y}" stroke="{GRID}" stroke-width="0.9" opacity="0.15"/>')
-
-    out.append(f'<line x1="12" y1="0" x2="12" y2="{TH}" stroke="{OLIVE}" stroke-width="3" opacity="0.95"/>')
-
-    sep_y = TH - 50
-
-    out.append(
-        f'<rect x="22" y="10" width="{TW-34}" height="{TH-20}" rx="16" '
-        f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1" filter="url(#cardShadow)"/>'
-    )
-    out.append(
-        f'<rect x="22" y="10" width="{TW-34}" height="{TH-20}" rx="16" '
-        f'fill="{lnk["accent"]}" opacity="0.08"/>'
-    )
-
-    # Icon badge
-    out.append(f'<rect x="36" y="22" width="32" height="32" rx="9" fill="{lnk["accent"]}"/>')
-    out.append(
-        f'<text x="52" y="43" font-family="{SANS}" font-size="16" font-weight="800" '
-        f'fill="{DARK}" text-anchor="middle">{esc(lnk["label"][0])}</text>'
-    )
-
-    # Title & Subtitle
-    out.append(
-        f'<text x="78" y="38" font-family="{MONO}" font-size="13" font-weight="800" '
-        f'fill="{DARK}" letter-spacing="0.9">{esc(lnk["label"])}</text>'
-    )
-    out.append(
-        f'<text x="78" y="56" font-family="{MONO}" font-size="10" font-weight="500" '
-        f'fill="{MUTED}">{esc(lnk["sub"])}</text>'
-    )
-
-    # Diagonal Arrow ↗ with calm, continuous glide loop
-    if STATIC:
-        out.append(
-            f'<text x="{TW-26}" y="38" font-family="{SANS}" font-size="20" '
-            f'fill="{MUTED}" text-anchor="end" font-weight="600">↗</text>'
-        )
-    else:
-        out.append(f"""
-  <g>
-    <animateTransform attributeName="transform" type="translate" values="0 0; 3 -3; 0 0" keyTimes="0; 0.25; 1"
-                     dur="4.0s" repeatCount="indefinite" calcMode="spline" keySplines="0.2 0.8 0.2 1; 0.2 0.8 0.2 1"/>
-    <text x="{TW-26}" y="38" font-family="{SANS}" font-size="20"
-          fill="{MUTED}" text-anchor="end" font-weight="600">↗</text>
-  </g>
-""")
-
-    out.append(f'<line x1="36" y1="{sep_y}" x2="{TW-26}" y2="{sep_y}" stroke="{CARD_STR}" stroke-width="1"/>')
-    out.append(status_dot(46, TH - 26, color=OLIVE))
-    out.append(
-        f'<text x="58" y="{TH-22}" font-family="{MONO}" font-size="11" font-weight="700" '
-        f'fill="{DARK}" letter-spacing="0.5">OPEN ↗</text>'
-    )
-
-    out.append(svg_close())
-    return "".join(out)
-
-# ─────────── Card 03 · Contributions Chart ─────────────────────────────────
-
-def render_chart(data: dict, font_uri: str | None) -> str:
-    H      = 280
-    months = data["months"]
-    streak = data["streak_days"]
-    active = data["active_days_ytd"]
-    busy   = data["busiest_day"]
-    total  = data["total_ytd"]
-
-    max_c  = max((m["count"] for m in months), default=1) or 1
-    BAR_MAX_H = 110
-    BAR_W  = 48
-    LEFT   = 60
-    BOTTOM = 200
-    BAR_GAP = (W - LEFT - 60 - len(months) * BAR_W) // (len(months) - 1 or 1)
-
-    out = [svg_open(W, H, "Contributions per month")]
-    out.append(defs_block(font_uri))
-    out.append(f'<rect width="{W}" height="{H}" fill="url(#bgGrad)"/>')
-    out.append(grid_lines(W, H))
-    out.append(accent_bar(H))
-
-    out.append(
-        f'<text x="59" y="40" font-family="{MONO}" font-size="13" font-weight="700" '
-        f'fill="{MUTED}" letter-spacing="1.8">02 / CONTRIBUTION ACTIVITY</text>'
-    )
-
-    # Real stats pills
-    stats = [
-        (f"{streak}d", "STREAK", True),
-        (f"{active}", "ACTIVE DAYS", False),
-        (busy["date"][-5:], "BUSIEST DAY", False),
-        (f"{total}", "TOTAL YTD", False),
-    ]
-    pw = 170
-    for si, (val, lbl, has_dot) in enumerate(stats):
-        px = W - 50 - (len(stats)-si) * (pw + 10)
-        out.append(
-            f'<rect x="{px}" y="12" width="{pw}" height="52" rx="12" '
-            f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>'
-        )
-        if has_dot:
-            out.append(status_dot(px + pw - 18, 22, color=OLIVE))
-        out.append(
-            f'<text x="{px+14}" y="34" font-family="{SANS}" font-size="20" '
-            f'font-weight="800" fill="{DARK}">{esc(val)}</text>'
-        )
-        out.append(
-            f'<text x="{px+14}" y="52" font-family="{MONO}" font-size="10" '
-            f'font-weight="600" fill="{MUTED}" letter-spacing="0.9">{esc(lbl)}</text>'
-        )
-
-    # Bars representing real activity with smooth, deliberate 1.5s wave rise
-    for i, m in enumerate(months):
-        bh = int(m["count"] / max_c * BAR_MAX_H) if max_c > 0 else 0
-        bx = LEFT + i * (BAR_W + BAR_GAP)
-        by = BOTTOM - bh
-        is_peak = (m["count"] == max_c and m["count"] > 0)
-        fill = LIME if is_peak else (INNER_BG if m["count"] > 0 else CARD_STR)
-        stroke = OLIVE if is_peak else (CARD_STR if m["count"] > 0 else "none")
-
-        if bh > 0:
-            stagger = 0.15 + i * 0.08
-            out.append(
-                f'<rect x="{bx}" y="{by}" width="{BAR_W}" height="{bh}" rx="6" '
-                f'fill="{fill}" stroke="{stroke}" stroke-width="{1.5 if is_peak else 1}">'
-            )
-            if not STATIC:
-                out.append(
-                    f'<animate attributeName="height" from="0" to="{bh}" '
-                    f'begin="{stagger:.2f}s" dur="1.4s" fill="freeze" '
-                    f'calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>\n'
-                    f'<animate attributeName="y" from="{BOTTOM}" to="{by}" '
-                    f'begin="{stagger:.2f}s" dur="1.4s" fill="freeze" '
-                    f'calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>\n'
-                )
-                if is_peak:
-                    out.append(
-                        f'<animate attributeName="stroke-width" values="1.5;3.2;1.5" dur="3.0s" begin="{stagger+1.4:.2f}s" repeatCount="indefinite"/>\n'
-                    )
-            out.append("</rect>\n")
+def parse_calendar(html: str) -> list[dict]:
+    parser = CalendarParser()
+    parser.feed(html)
+    days = []
+    for ident, cell in parser.cells.items():
+        tooltip = parser.tooltips.get(ident, '')
+        match = re.search(r'([\d,]+)\s+contributions?\b', tooltip)
+        if match:
+            count = int(match[1].replace(',', ''))
+        elif re.search(r'\bNo contributions?\b', tooltip, re.I):
+            count = 0
         else:
-            out.append(
-                f'<rect x="{bx+BAR_W//2-4}" y="{BOTTOM-2}" width="8" height="2" rx="1" fill="{CARD_STR}" opacity="0.4"/>\n'
-            )
+            # Changed markup must preserve the last good snapshot, not zero it.
+            raise ValueError(f'Missing contribution count for {cell["date"]}')
+        days.append({**cell, 'count': count})
+    if not days:
+        raise ValueError('No contribution calendar cells found')
+    return sorted(days, key=lambda d: d['date'])
 
-        # Count label on top of bar
-        if m["count"] > 0:
-            out.append(
-                f'<text x="{bx + BAR_W//2}" y="{by - 6}" font-family="{MONO}" font-size="11" font-weight="700" '
-                f'fill="{DARK if is_peak else MUTED}" text-anchor="middle">{m["count"]}</text>\n'
-            )
 
-        # Month label
-        out.append(
-            f'<text x="{bx + BAR_W//2}" y="{BOTTOM + 20}" '
-            f'font-family="{MONO}" font-size="11" font-weight="600" '
-            f'fill="{MUTED}" text-anchor="middle">{esc(m["label"])}</text>\n'
-        )
+def calendar_stats(days: list[dict], today: date) -> dict:
+    days = sorted((d for d in days if date.fromisoformat(d['date']) <= today),
+                  key=lambda d: d['date'])
+    if not days:
+        raise ValueError('No past contribution days found')
+    # Fill gaps so streaks cannot bridge a missing date.
+    lookup = {d['date']: d for d in days}
+    start = date.fromisoformat(days[0]['date'])
+    complete = []
+    day = start
+    while day <= today:
+        ds = day.isoformat()
+        complete.append(lookup.get(ds, {'date': ds, 'count': 0, 'level': 0}))
+        day += timedelta(days=1)
+    longest = running = 0
+    for d in complete:
+        running = running + 1 if d['count'] else 0
+        longest = max(longest, running)
+    # An unfinished today does not break yesterday's ongoing streak.
+    cursor = today
+    if not lookup.get(cursor.isoformat(), {}).get('count', 0):
+        cursor -= timedelta(days=1)
+    current = 0
+    while lookup.get(cursor.isoformat(), {}).get('count', 0):
+        current += 1
+        cursor -= timedelta(days=1)
+    sunday = start - timedelta(days=(start.weekday() + 1) % 7)
+    weeks = []
+    cursor = sunday
+    while cursor <= today:
+        week = []
+        for _ in range(7):
+            ds = cursor.isoformat()
+            week.append(lookup.get(ds, {'date': ds, 'count': 0, 'level': 0}))
+            cursor += timedelta(days=1)
+        weeks.append(week)
+    return {
+        '_note': 'Public GitHub contribution calendar; streaks cover the displayed period.',
+        '_updated': today.isoformat(),
+        'total': sum(d['count'] for d in complete),
+        'current_streak': current,
+        'longest_streak': longest,
+        'active_days': sum(bool(d['count']) for d in complete),
+        'period_start': days[0]['date'],
+        'period_end': today.isoformat(),
+        'days': complete,
+        'weeks': weeks,
+    }
 
-    out.append(
-        f'<line x1="{LEFT-10}" y1="{BOTTOM}" x2="{W-50}" y2="{BOTTOM}" stroke="{CARD_STR}" stroke-width="1"/>'
-    )
 
-    out.append(svg_close())
-    return "".join(out)
+def profile_stats(user: dict, repos: list[dict], languages: list[dict]) -> dict:
+    totals = Counter()
+    for counts in languages:
+        totals.update(counts)
+    source_repos = [r for r in repos if not r['fork']]
+    return {
+        '_updated': datetime.now(timezone.utc).date().isoformat(),
+        'login': user['login'], 'created_at': user['created_at'][:10],
+        'public_repos': user['public_repos'], 'followers': user['followers'],
+        'stars': sum(r['stargazers_count'] for r in source_repos),
+        'languages': dict(totals.most_common()),
+        'language_basis': 'Bytes across public, non-fork repositories',
+        'source_repos': len(source_repos),
+    }
 
-# ─────────── Card 04 · Repo Cards ──────────────────────────────────────────
 
-LANG_COLOR = {
-    "Python":     "#3572A5",
-    "TypeScript": "#3178C6",
-    "JavaScript": "#F1E05A",
-    "Rust":       "#DEA584",
-    "Go":         "#00ADD8",
-}
-
-def render_repo(repo: dict, idx: int, font_uri: str | None) -> str:
-    H      = 190
-
-    CARD_L = 53
-    CARD_R = W - 53
-    CARD_T = 16
-    CARD_B = H - 16
-    CARD_W = CARD_R - CARD_L
-    CARD_H = CARD_B - CARD_T
-
-    DIV_X  = CARD_L + int(CARD_W * 0.72)
-
-    clip_id = f"cc{idx}"
-    extra = (
-        f'  <clipPath id="{clip_id}">\n'
-        f'    <rect x="{CARD_L}" y="{CARD_T}" width="{CARD_W}" height="{CARD_H}" rx="20" ry="20"/>\n'
-        f'  </clipPath>'
-    )
-
-    out = [svg_open(W, H, f"Repo — {repo['name']}")]
-    out.append(defs_block(font_uri, extra_defs=extra))
-    out.append(f'<rect width="{W}" height="{H}" fill="url(#bgGrad)"/>')
-    out.append(grid_lines(W, H))
-    out.append(accent_bar(H))
-
-    # Base card
-    out.append(
-        f'<rect x="{CARD_L}" y="{CARD_T}" width="{CARD_W}" height="{CARD_H}" rx="20" '
-        f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1" filter="url(#cardShadow)"/>'
-    )
-
-    # Right panel tinted background
-    out.append(
-        f'<rect x="{DIV_X}" y="{CARD_T}" width="{CARD_R - DIV_X}" height="{CARD_H}" '
-        f'fill="{INNER_BG}" clip-path="url(#{clip_id})"/>'
-    )
-
-    # Clean divider line
-    out.append(
-        f'<line x1="{DIV_X}" y1="{CARD_T + 14}" x2="{DIV_X}" y2="{CARD_B - 14}" '
-        f'stroke="{CARD_STR}" stroke-width="1"/>'
-    )
-
-    # ── Left Panel ───────────────────────────────────────────────────────────
-    chip_x, chip_y = CARD_L + 17, CARD_T + 14
-
-    out.append(f'<rect x="{chip_x}" y="{chip_y}" width="32" height="28" rx="8" fill="{LIME}"/>')
-    out.append(
-        f'<text x="{chip_x + 16}" y="{chip_y + 20}" font-family="{MONO}" font-size="13" '
-        f'font-weight="800" fill="{DARK}" text-anchor="middle">{idx+1:02d}</text>'
-    )
-
-    out.append(
-        f'<text x="{CARD_L + 60}" y="{CARD_T + 36}" font-family="{SANS}" font-size="21" '
-        f'font-weight="800" fill="{DARK}" letter-spacing="-0.5">{esc(repo["name"])}</text>'
-    )
-
-    max_chars = max(20, int((DIV_X - CARD_L - 70) / 8.3))
-    desc_lines = wrap_text(repo["description"], max_chars)
-    for li, line in enumerate(desc_lines[:2]):
-        out.append(
-            f'<text x="{CARD_L + 17}" y="{CARD_T + 68 + li * 21}" '
-            f'font-family="{SANS}" font-size="14" font-weight="400" fill="{MUTED}">'
-            f'{esc(line)}</text>'
-        )
-
-    # Topics
-    tx   = CARD_L + 17
-    ty   = CARD_B - 46
-    for topic in repo["topics"][:5]:
-        tw = len(topic) * 7 + 26
-        if tx + tw > DIV_X - 10:
-            break
-        out.append(
-            f'<rect x="{tx}" y="{ty}" width="{tw}" height="26" rx="12" '
-            f'fill="{CARD_BG}" stroke="{INNER_STR}" stroke-width="1"/>'
-        )
-        out.append(f'<circle cx="{tx + 13}" cy="{ty + 13}" r="4" fill="{OLIVE}"/>')
-        out.append(
-            f'<text x="{tx + 24}" y="{ty + 18}" font-family="{SANS}" font-size="11" '
-            f'font-weight="600" fill="{DARK}">{esc(topic)}</text>'
-        )
-        tx += tw + 8
-
-    # ── Right Panel ──────────────────────────────────────────────────────────
-    RP_TOP = CARD_T + 22
-
-    lang_col = LANG_COLOR.get(repo.get("language", ""), MUTED)
-    out.append(f'<circle cx="{DIV_X + 24}" cy="{RP_TOP + 7}" r="6" fill="{lang_col}"/>')
-    out.append(
-        f'<text x="{DIV_X + 38}" y="{RP_TOP + 12}" font-family="{MONO}" font-size="12" '
-        f'font-weight="600" fill="{DARK}">{esc(repo.get("language", ""))}</text>'
-    )
-
-    # Star count
-    out.append(
-        f'<text x="{CARD_R - 24}" y="{RP_TOP + 12}" font-family="{MONO}" font-size="13" '
-        f'font-weight="800" fill="{DARK}" text-anchor="end">★ {repo.get("stars", 0)}</text>'
-    )
-
-    sep_y = CARD_T + CARD_H // 2
-    out.append(
-        f'<line x1="{DIV_X + 16}" y1="{sep_y}" x2="{CARD_R - 16}" y2="{sep_y}" '
-        f'stroke="{CARD_STR}" stroke-width="1"/>'
-    )
-
-    btn_y    = sep_y + 12
-    btn_h    = 32
-    rp_inner = CARD_R - DIV_X - 32
-    btn_w    = (rp_inner - 8) // 2
-    live_x   = DIV_X + 16
-    src_x    = live_x + btn_w + 8
-
-    # LIVE button with calm breathing fill
-    if STATIC:
-        out.append(
-            f'<rect x="{live_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" fill="{LIME}"/>'
-        )
-    else:
-        out.append(f"""
-  <rect x="{live_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" fill="{LIME}">
-    <animate attributeName="fill-opacity" values="1;0.82;1" dur="3.2s" repeatCount="indefinite"/>
-  </rect>
-""")
-    out.append(
-        f'<text x="{live_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}" '
-        f'font-size="11" font-weight="800" fill="{DARK}" text-anchor="middle">LIVE ↗</text>'
-    )
-    out.append(
-        f'<rect x="{src_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" '
-        f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>'
-    )
-    out.append(
-        f'<text x="{src_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}" '
-        f'font-size="11" font-weight="700" fill="{MUTED}" text-anchor="middle">SOURCE ↗</text>'
-    )
-
-    out.append(svg_close())
-    return "".join(out)
-
-# ─────────── Card 05 · Contribution Graph ──────────────────────────────────
-
-def render_graph(data: dict, font_uri: str | None) -> str:
-    """Render a clean GitHub-style contribution heatmap with a silky smooth GPU-accelerated scanline sweep."""
-    H       = 200
-    weeks   = data.get("graph_weeks", [])
-    CELL    = 14
-    GAP     = 3
-    GRID_X  = 60
-    GRID_Y  = 62
-    DAYS    = ["Mon", "", "Wed", "", "Fri", "", "Sun"]
-    max_val = max((v for w in weeks for v in w), default=1) or 1
-
-    def cell_color(v: int) -> tuple[str, str]:
-        if v == 0:
-            return "#161B14", "#20271D"
-        t = v / max_val
-        if t <= 0.25:
-            return "#3E5219", "#4A611E"
-        if t <= 0.50:
-            return "#688A29", "#789F30"
-        if t <= 0.75:
-            return "#98C638", "#A4D43D"
-        return "#D7FF68", "#E2FF7E"
-
-    out = [svg_open(W, H, "Contribution graph")]
-    out.append(defs_block(font_uri))
-    out.append(f'<rect width="{W}" height="{H}" fill="url(#bgGradDark)"/>')
-
-    for gx in range(0, W + 1, 64):
-        out.append(f'<line x1="{gx}" y1="0" x2="{gx}" y2="{H}" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/>')
-    for gy in range(0, H + 1, 30):
-        out.append(f'<line x1="0" y1="{gy}" x2="{W}" y2="{gy}" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/>')
-
-    total_ytd = data.get("total_ytd", sum(v for w in weeks for v in w))
-    out.append(
-        f'<text x="59" y="32" font-family="{MONO}" font-size="13" font-weight="700" '
-        f'fill="#C6D5B2" letter-spacing="1.8">05 / CONTRIBUTION GRAPH</text>'
-    )
-    out.append(
-        f'<text x="320" y="32" font-family="{SANS}" font-size="13" font-weight="600" '
-        f'fill="#A1AB98">({total_ytd} contributions in the last year)</text>'
-    )
-
-    # Real month headers
-    today = date.today()
-    cur = today - timedelta(days=len(weeks)*7 - 1)
-    cur = cur - timedelta(days=cur.weekday())
-    last_m = None
-    for wi in range(len(weeks)):
-        w_date = cur + timedelta(days=wi*7)
-        for d in range(7):
-            day = w_date + timedelta(days=d)
-            if day.day <= 7 and day.month != last_m:
-                out.append(
-                    f'<text x="{GRID_X + wi * (CELL + GAP)}" y="{GRID_Y - 8}" '
-                    f'font-family="{MONO}" font-size="10" font-weight="600" fill="#8E9988">'
-                    f'{day.strftime("%b")}</text>'
-                )
-                last_m = day.month
+def refresh() -> tuple[dict, dict]:
+    activity, profile = read_json(DATA), read_json(PROFILE)
+    try:
+        days = parse_calendar(request(f'https://github.com/users/{USER}/contributions'))
+        today = datetime.now(timezone.utc).date()
+        activity = calendar_stats(days, today)
+        save_json(DATA, activity)
+        print(f'Activity: {activity["total"]} contributions; {activity["current_streak"]}-day streak')
+    except Exception as exc:
+        print(f'Activity refresh failed ({exc}); keeping saved snapshot.', file=sys.stderr)
+    try:
+        user = api(f'users/{USER}')
+        repos, page = [], 1
+        while True:
+            batch = api(f'users/{USER}/repos?type=owner&per_page=100&page={page}')
+            repos.extend(batch)
+            if len(batch) < 100:
                 break
+            page += 1
+        languages = [api(f'repos/{USER}/{r["name"]}/languages') for r in repos if not r['fork']]
+        profile = profile_stats(user, repos, languages)
+        save_json(PROFILE, profile)
+        print(f'Profile: {profile["public_repos"]} repositories; {profile["stars"]} stars')
+    except Exception as exc:
+        print(f'Profile refresh failed ({exc}); keeping saved snapshot.', file=sys.stderr)
+    if not activity or not profile:
+        raise RuntimeError('No saved snapshot available. Run once with network access.')
+    return activity, profile
 
-    # Real heatmap cells — 100% static, rock-solid 60 FPS, ZERO CPU color thrashing
-    for wi, week in enumerate(weeks):
-        for di, val in enumerate(week):
-            cx = GRID_X + wi * (CELL + GAP)
-            cy = GRID_Y + di * (CELL + GAP)
-            bg, st = cell_color(val)
-            out.append(
-                f'<rect x="{cx}" y="{cy}" width="{CELL}" height="{CELL}" rx="3" '
-                f'fill="{bg}" stroke="{st}" stroke-width="0.8"/>\n'
-            )
 
-    for di, lbl in enumerate(DAYS):
-        if lbl:
-            cy = GRID_Y + di * (CELL + GAP) + CELL - 3
-            out.append(
-                f'<text x="{GRID_X - 8}" y="{cy}" font-family="{MONO}" font-size="9" '
-                f'font-weight="600" fill="#8E9988" text-anchor="end">{lbl}</text>'
-            )
+def text(x, y, value, size=18, fill=TEXT, weight=400, anchor='start', extra=''):
+    return (f'<text x="{x}" y="{y}" font-size="{size}" fill="{fill}" '
+            f'font-weight="{weight}" text-anchor="{anchor}" {extra}>{escape(str(value))}</text>')
 
-    # Silky-smooth 60fps GPU-accelerated Luminous Radar Beam (sweeps every 5.5s)
-    if not STATIC:
-        out.append(f"""
-  <linearGradient id="scanBeam" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%"   stop-color="#D7FF68" stop-opacity="0"/>
-    <stop offset="35%"  stop-color="#D7FF68" stop-opacity="0.25"/>
-    <stop offset="50%"  stop-color="#FFFFFF" stop-opacity="0.60"/>
-    <stop offset="65%"  stop-color="#D7FF68" stop-opacity="0.25"/>
-    <stop offset="100%" stop-color="#D7FF68" stop-opacity="0"/>
-  </linearGradient>
-  <rect x="{GRID_X - 100}" y="{GRID_Y - 8}" width="90" height="{7 * (CELL + GAP) + 12}"
-        fill="url(#scanBeam)" rx="4">
-    <animate attributeName="x"
-             values="{GRID_X - 100}; {GRID_X + len(weeks) * (CELL + GAP) + 40}; {GRID_X + len(weeks) * (CELL + GAP) + 40}"
-             keyTimes="0; 0.55; 1"
-             dur="5.5s"
-             repeatCount="indefinite"
-             calcMode="spline"
-             keySplines="0.25 0.1 0.25 1; 0 0 1 1"/>
-    <animate attributeName="opacity"
-             values="0; 1; 1; 0; 0"
-             keyTimes="0; 0.08; 0.48; 0.54; 1"
-             dur="5.5s"
-             repeatCount="indefinite"/>
-  </rect>
-""")
 
-    # Legend in brand colours
-    lx = W - 220
-    out.append(f'<text x="{lx}" y="{H-16}" font-family="{MONO}" font-size="10" fill="#8E9988">Less</text>')
-    legend_colors = ["#161B14", "#3E5219", "#688A29", "#98C638", "#D7FF68"]
-    for li, col in enumerate(legend_colors):
-        out.append(
-            f'<rect x="{lx+38+li*17}" y="{H-27}" width="{CELL}" height="{CELL}" rx="3" fill="{col}" stroke="#303828" stroke-width="0.8"/>'
-        )
-    out.append(f'<text x="{lx+38+5*17 + 6}" y="{H-16}" font-family="{MONO}" font-size="10" fill="#8E9988">More</text>')
+def rect(x, y, w, h, fill, rx=0, stroke='none', extra=''):
+    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}" stroke="{stroke}" {extra}/>'
 
-    out.append(svg_close())
-    return "".join(out)
 
-# ─────────── README Writer ──────────────────────────────────────────────────
+def shell(w, h, title, body, *, inner=True):
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="title desc">
+<title id="title">{escape(title)}</title>
+<desc id="desc">Public GitHub data for {USER}. Generated locally; no external image service required.</desc>
+<defs>
+ <linearGradient id="base" x2="0.8" y2="1"><stop stop-color="#1b242e"/><stop offset="1" stop-color="#20232c"/></linearGradient>
+ <radialGradient id="blue"><stop stop-color="#408ee6" stop-opacity=".34"/><stop offset="1" stop-color="#408ee6" stop-opacity="0"/></radialGradient>
+ <radialGradient id="green"><stop stop-color="#22b86a" stop-opacity=".21"/><stop offset="1" stop-color="#22b86a" stop-opacity="0"/></radialGradient>
+ <radialGradient id="violet"><stop stop-color="#a569e8" stop-opacity=".32"/><stop offset="1" stop-color="#a569e8" stop-opacity="0"/></radialGradient>
+ <radialGradient id="cyan"><stop stop-color="#009cb8" stop-opacity=".23"/><stop offset="1" stop-color="#009cb8" stop-opacity="0"/></radialGradient>
+ <clipPath id="clip">{rect(1,1,w-2,h-2,'white',23)}</clipPath>
+</defs>
+<style>text{{font-family:Arial,Helvetica,sans-serif}}.snake-still{{display:none}}@media(prefers-reduced-motion:reduce){{.snake-motion{{display:none}}.snake-still{{display:inline}}}}</style>
+{rect(1,1,w-2,h-2,'url(#base)',23,'#478cd1',extra='stroke-opacity=".85"')}
+<g clip-path="url(#clip)">
+ <ellipse cx="{w*.19}" cy="{h*.10}" rx="{w*.32}" ry="{h*.70}" fill="url(#blue)"/>
+ <ellipse cx="{w*.78}" cy="{h*.20}" rx="{w*.33}" ry="{h*.86}" fill="url(#green)"/>
+ <ellipse cx="{w*.64}" cy="{h*1.1}" rx="{w*.38}" ry="{h*.65}" fill="url(#violet)"/>
+ <ellipse cx="{w*1.02}" cy="{h*.90}" rx="{w*.30}" ry="{h*.70}" fill="url(#cyan)"/>
+</g>
+{rect(32,30,w-64,h-60,'#101619',24,'#386b96',extra='fill-opacity=".69"') if inner else ''}
+{body}
+</svg>'''
 
-def build_readme(repos: list[dict]) -> str:
-    lines = [
-        "<!--",
-        "  VITTAL J G / GITHUB PROFILE · V3 ANIMATED SVG CARDS",
-        "  Generated by render_cards.py — DO NOT EDIT BY HAND",
-        "  Source: https://vittal-dev.vercel.app/",
-        "-->",
-        "",
-        '<div align="center">',
-        "",
-        "<!-- 01 hero -->",
-        '<a href="https://vittal-dev.vercel.app/">',
-        '  <img src="./cards/01-hero.svg" width="100%" alt="Vittal J G — Big ideas. Built for real."/>',
-        "</a>",
-        "",
-        "<!-- 02 links row — three tiles at 32.5% each, inline so they sit side-by-side -->",
-        '<a href="https://vittal-dev.vercel.app/"><img src="./cards/02-link-portfolio.svg" width="32.5%" alt="Portfolio ↗"/></a>&nbsp;'
-        '<a href="https://github.com/Vittal-17"><img src="./cards/02-link-github.svg" width="32.5%" alt="GitHub ↗"/></a>&nbsp;'
-        '<a href="https://www.linkedin.com/in/vittal-dev/"><img src="./cards/02-link-linkedin.svg" width="32.5%" alt="LinkedIn ↗"/></a>',
-        "",
-        "<!-- 03 chart -->",
-        '<img src="./cards/03-chart.svg" width="100%" alt="Contributions per month"/>',
-        "",
-        "<!-- 04 repos -->",
-    ]
-    for i, r in enumerate(repos):
-        slug = r["name"].lower().replace("/", "-")
-        lines.append(
-            f'<a href="{r["url"]}">'
-            f'<img src="./cards/04-repo-{i+1:02d}-{slug}.svg" '
-            f'width="100%" alt="{esc(r["name"])} — {esc(r["description"])}"/>'
-            f'</a>'
-        )
 
-    lines += [
-        "",
-        "<!-- 05 contribution graph -->",
-        '<img src="./cards/05-graph.svg" width="100%" alt="Contribution graph"/>',
-        "",
-        "</div>",
-        "",
-        "<p align=\"center\">",
-        '  <a href="https://vittal-dev.vercel.app/"><strong>Portfolio ↗</strong></a> &nbsp;/&nbsp;',
-        '  <a href="https://github.com/Vittal-17?tab=repositories"><strong>Repositories ↗</strong></a> &nbsp;/&nbsp;',
-        '  <a href="https://www.linkedin.com/in/vittal-dev/"><strong>LinkedIn ↗</strong></a> &nbsp;/&nbsp;',
-        '  <a href="mailto:vitthaljg@gmail.com"><strong>Contact ↗</strong></a>',
-        "</p>",
-        "",
-        "<sub>FULL-STACK ENGINEERING · PYTHON BACKENDS · AI / RAG · AUTOMATION · CLOUD</sub>",
-        "",
-    ]
-    return "\n".join(lines)
+def updated_label(data):
+    return 'Updated ' + date.fromisoformat(data['_updated']).strftime('%d %b %Y')
 
-# ─────────── Main ────────────────────────────────────────────────────────────
+
+def signal_card(a, p):
+    body = text(31, 39, 'Profile Signal', 21, weight=700)
+    body += text(31, 57, updated_label(p), 10, MUTED)
+    items = [('Stars', p['stars'], BLUE), ('Contributions', a['total'], '#42cfdb'),
+             ('Repos', p['public_repos'], '#b482ef'), ('Followers', p['followers'], '#4bd282')]
+    for i, (label, value, color) in enumerate(items):
+        x = 31 + i*108
+        body += rect(x, 70, 101, 84, '#11181c', 12, '#3c6386', extra='fill-opacity=".88"')
+        body += text(x+12, 91, label, 10, MUTED)
+        body += text(x+12, 124, f'{value:,}', 25, color, 700)
+        body += rect(x+12, 136, 77, 4, '#29313a', 2)
+        body += rect(x+12, 136, 13 if value else 0, 4, color, 2)
+    return shell(490, 185, 'Profile Signal: stars, contributions, repositories and followers', body, inner=False)
+
+
+def streak_card(a):
+    body = ''
+    for x in (161, 329):
+        body += f'<path d="M{x} 31V149" stroke="#465362"/>'
+    body += f'<circle cx="245" cy="79" r="39" fill="none" stroke="{PURPLE}" stroke-width="5" stroke-dasharray="225 20" transform="rotate(-74 245 79)"/>'
+    # A tiny flame above the ring.
+    body += f'<path d="M245 27c-9 9-5 15 1 15s11-7 3-16c1 7-5 7-4 1Z" fill="{PURPLE}"/>'
+    body += text(80, 86, f'{a["total"]:,}', 29, PURPLE, 700, 'middle')
+    body += text(80, 119, 'Year contributions', 12, PURPLE, anchor='middle')
+    body += text(245, 89, a['current_streak'], 30, '#ffe58b', 700, 'middle')
+    body += text(245, 146, 'Current streak', 13, '#ffe58b', 700, 'middle')
+    body += text(410, 86, a['longest_streak'], 29, PURPLE, 700, 'middle')
+    body += text(410, 119, 'Best streak', 12, PURPLE, anchor='middle')
+    body += text(245, 170, 'Streaks in days · last 12 months', 10, MUTED, anchor='middle')
+    return shell(490, 185, 'Contributions and daily streaks over the last 12 months', body, inner=False)
+
+
+def language_rows(p):
+    pairs = list(p['languages'].items())
+    total = sum(v for _, v in pairs)
+    if not total:
+        return []
+    # Keep every byte accounted for, including less-used languages.
+    if len(pairs) > 5:
+        pairs = pairs[:5] + [('Other', sum(v for _, v in pairs[5:]))]
+    return [(name, value/total*100) for name, value in pairs]
+
+
+def languages_card(p):
+    rows = language_rows(p)
+    h = 140 + max(len(rows), 1)*37
+    body = text(52, 71, 'Language Stack', 31, weight=700)
+    body += text(54, 96, 'Code across public source repositories', 15, MUTED)
+    body += text(930, 71, '> stack.scan', 15, BLUE, 700, 'end')
+    if not rows:
+        body += text(54, 135, 'No language data available yet.', 18, MUTED)
+    for i, (name, value) in enumerate(rows):
+        y = 127 + i*37
+        color = LANG_COLORS.get(name, BLUE)
+        body += f'<circle cx="62" cy="{y-5}" r="6" fill="{color}"/>'
+        body += text(83, y, name, 16, weight=600)
+        body += text(322, y, f'{value:.1f}%', 15, color, anchor='end')
+        body += rect(350, y-15, 545, 10, '#303b40', 5)
+        body += rect(350, y-15, round(545*value/100, 2), 10, color, 5)
+    return shell(1000, h, 'Language Stack: ' + ', '.join(f'{n} {v:.1f}%' for n, v in rows), body)
+
+
+def highlights_card(p):
+    body = text(35, 50, 'H I G H L I G H T S', 12, MUTED, 700)
+    for i, (heading, caption, color) in enumerate([
+        ('Open Source', f'{p["public_repos"]} public repositories', BLUE),
+        ('Impact', f'{p["stars"]} stars earned', '#38cc7b'),
+        ('Community', f'{p["followers"]} ' + ('follower' if p['followers']==1 else 'followers'), '#ad74ed'),
+    ]):
+        x = 33 + i*319
+        body += rect(x, 70, 301, 111, '#11181c', 19, '#4c8fce', extra='fill-opacity=".68"')
+        body += rect(x, 97, 4, 59, color, 1)
+        body += text(x+28, 113, heading, 19, weight=700)
+        body += text(x+28, 143, caption, 15, MUTED)
+    return shell(1000, 210, 'Highlights: open source, impact and community', body, inner=False)
+
+
+def grid(a, x=54, y=116, width=870):
+    weeks = a['weeks']
+    pitch = width / max(len(weeks), 1)
+    size = min(pitch-3, 14)
+    body, active = '', []
+    for col, week in enumerate(weeks):
+        for row, d in enumerate(week):
+            if d['date'] > a['period_end']:
+                continue
+            px, py = x+col*pitch, y+row*pitch
+            color = LEVELS[max(0, min(4, d['level']))]
+            body += rect(round(px,2), round(py,2), round(size,2), round(size,2), color, 2)
+            if d['count']:
+                active.append((round(px+size/2,2), round(py+size/2,2)))
+    return body, active, y + 6*pitch + size
+
+
+def activity_card(a):
+    body = text(52, 70, 'Contribution Activity', 29, weight=700)
+    body += text(54, 98, f'{a["total"]:,} contributions in the last year', 16, MUTED)
+    body += text(727, 83, 'Less', 12, MUTED)
+    for i, color in enumerate(LEVELS):
+        body += rect(765+i*18, 72, 13, 13, color, 2)
+    body += text(861, 83, 'More', 12, MUTED)
+    cells, _, bottom = grid(a)
+    body += cells
+    h = round(bottom+58)
+    body += text(946, h-13, updated_label(a), 11, MUTED, anchor='end')
+    return shell(1000, h, 'Contribution Activity: ' + str(a['total']) + ' contributions in the last year', body)
+
+
+def snake_card(a):
+    body = text(54, 67, 'S N A K E   T R A I L', 12, BLUE, 700)
+    body += text(54, 96, f'{a["total"]:,} contributions, one continuous run', 23, weight=700)
+    body += text(943, 69, 'KEEP BUILDING', 11, '#bbdbff', anchor='end', extra='letter-spacing="1.5"')
+    cells, active, bottom = grid(a, y=122)
+    body += cells
+    if active:
+        # Traverse the real active cells with orthogonal turns, then close the loop.
+        first_x, first_y = active[0]
+        route = 'M0 0 '
+        for x, y in active[1:] + active[:1]:
+            route += f'H{round(x-first_x,2)} V{round(y-first_y,2)} '
+        head = (rect(-7,-7,15,15,'#b9e3ff',5) + rect(2,-4,2,3,'#183950',1)
+                + rect(2,2,2,3,'#183950',1))
+        still_x, still_y = active[-1]
+        body += f'<g class="{"" if STATIC else "snake-still"}" transform="translate({still_x} {still_y})">{head}</g>'
+        if not STATIC:
+            body += f'<g class="snake-motion" transform="translate({first_x} {first_y})">'
+            for i in range(5, 0, -1):
+                body += (f'<g opacity="{1-i*.12}"><circle r="{6-i*.5}" fill="#79c6ff"/>'
+                         f'<animateMotion path="{route}" dur="32s" begin="{i*.16}s" repeatCount="indefinite"/></g>')
+            body += f'<g>{head}<animateMotion path="{route}" dur="32s" repeatCount="indefinite" rotate="auto"/></g></g>'
+    h = round(bottom+72)
+    body += text(54, h-39, 'Small commits. Steady progress.', 13, MUTED)
+    body += text(946, h-13, updated_label(a), 11, MUTED, anchor='end')
+    return shell(1000, h, 'Animated snake following real contribution activity', body)
+
+
+def render(a, p):
+    OUT.mkdir(exist_ok=True)
+    cards = {'signal.svg': signal_card(a,p), 'streak.svg': streak_card(a),
+             'languages.svg': languages_card(p), 'highlights.svg': highlights_card(p),
+             'activity.svg': activity_card(a), 'snake.svg': snake_card(a)}
+    for name, svg in cards.items():
+        (OUT / name).write_text(svg + '\n')
+    print(f'Rendered {len(cards)} SVG cards.')
+
 
 def main():
-    OUT.mkdir(exist_ok=True)
-    data   = fetch_and_load_data("Vittal-17")
-    repos  = data["repos"]
-    mode   = "STATIC" if STATIC else "ANIMATED (60FPS HIGH CRAFT)"
-    print(f"🎨  render_cards.py — {mode} mode")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--offline', action='store_true', help='Use saved JSON, without network requests')
+    args = parser.parse_args()
+    activity, profile = (read_json(DATA), read_json(PROFILE)) if args.offline else refresh()
+    if not activity or not profile:
+        parser.error('Missing data. Run once without --offline.')
+    render(activity, profile)
 
-    print("   subsetting font…")
-    font_uri = build_font_data_uri()
-    if font_uri:
-        print(f"   font embedded ({len(font_uri)//1024} KB)")
-    else:
-        print("   no font embed — using system fonts")
 
-    cards = []
-
-    # 01 hero
-    path = OUT / "01-hero.svg"
-    path.write_text(render_hero(data, font_uri), encoding="utf-8")
-    cards.append(str(path))
-    print(f"   ✓ {path.name}")
-
-    # 02 link tiles
-    for lnk in LINKS:
-        path = OUT / f"02-link-{lnk['slug']}.svg"
-        path.write_text(render_link_tile(lnk, font_uri), encoding="utf-8")
-        cards.append(str(path))
-        print(f"   ✓ {path.name}")
-
-    # 03 chart
-    path = OUT / "03-chart.svg"
-    path.write_text(render_chart(data, font_uri), encoding="utf-8")
-    cards.append(str(path))
-    print(f"   ✓ {path.name}")
-
-    # 04 repos
-    for i, repo in enumerate(repos):
-        slug = repo["name"].lower().replace("/", "-")
-        path = OUT / f"04-repo-{i+1:02d}-{slug}.svg"
-        path.write_text(render_repo(repo, i, font_uri), encoding="utf-8")
-        cards.append(str(path))
-        print(f"   ✓ {path.name}")
-
-    # 05 graph
-    path = OUT / "05-graph.svg"
-    path.write_text(render_graph(data, font_uri), encoding="utf-8")
-    cards.append(str(path))
-    print(f"   ✓ {path.name}")
-
-    # Update README
-    readme = ROOT / "README.md"
-    readme.write_text(build_readme(repos), encoding="utf-8")
-    print(f"   ✓ README.md regenerated")
-
-    print(f"\n✅  {len(cards)} cards written to {OUT}/")
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
