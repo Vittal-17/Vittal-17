@@ -45,6 +45,7 @@
   <img src="./assets/icons/html5.svg" width="42" height="42" alt="HTML5" title="HTML5"/>&nbsp;
   <img src="./assets/icons/css3.svg" width="42" height="42" alt="CSS3" title="CSS3"/>&nbsp;
   <img src="./assets/icons/tailwindcss.svg" width="42" height="42" alt="Tailwind CSS" title="Tailwind CSS"/>&nbsp;
+  <img src="./assets/icons/threejs.svg" width="42" height="42" alt="Three.js" title="Three.js"/>&nbsp;
 </p>
 
 > ### Backend
@@ -53,6 +54,7 @@
   <img src="./assets/icons/fastapi.svg" width="42" height="42" alt="FastAPI" title="FastAPI"/>&nbsp;
   <img src="./assets/icons/django.svg" width="42" height="42" alt="Django REST Framework" title="Django REST Framework"/>&nbsp;
   <img src="./assets/icons/flask.svg" width="42" height="42" alt="Flask" title="Flask"/>&nbsp;
+  <img src="./assets/icons/convex.svg" width="42" height="42" alt="Convex" title="Convex"/>&nbsp;
 </p>
 
 > ### Database
@@ -60,6 +62,9 @@
 <p align="center">
   <img src="./assets/icons/postgresql.svg" width="42" height="42" alt="PostgreSQL" title="PostgreSQL"/>&nbsp;
   <img src="./assets/icons/mongodb.svg" width="42" height="42" alt="MongoDB Atlas" title="MongoDB Atlas"/>&nbsp;
+  <img src="./assets/icons/mysql.svg" width="42" height="42" alt="MySQL" title="MySQL"/>&nbsp;
+  <img src="./assets/icons/sqlite.svg" width="42" height="42" alt="SQLite" title="SQLite"/>&nbsp;
+  <img src="./assets/icons/convex.svg" width="42" height="42" alt="Convex" title="Convex"/>&nbsp;
 </p>
 
 > ### DevOps & Cloud
@@ -69,7 +74,18 @@
   <img src="./assets/icons/oracle.svg" width="42" height="42" alt="Oracle Cloud" title="Oracle Cloud"/>&nbsp;
   <img src="./assets/icons/githubactions.svg" width="42" height="42" alt="GitHub Actions" title="GitHub Actions"/>&nbsp;
   <img src="./assets/icons/vercel.svg" width="42" height="42" alt="Vercel" title="Vercel"/>&nbsp;
+  <img src="./assets/icons/civo.svg" width="42" height="42" alt="Civo Cloud" title="Civo Cloud"/>&nbsp;
+  <img src="./assets/icons/render.svg" width="42" height="42" alt="Render" title="Render"/>&nbsp;
 </p>
+
+> ### Machine Learning
+
+<p align="center">
+  <img src="./assets/icons/jupyter.svg" width="42" height="42" alt="Jupyter Notebook" title="Jupyter Notebook"/>&nbsp;
+  <img src="./assets/icons/scikitlearn.svg" width="42" height="42" alt="scikit-learn — Random Forest and GridSearchCV" title="scikit-learn — Random Forest and GridSearchCV"/>&nbsp;
+</p>
+
+<p align="center"><sub>Jupyter Notebook · Random Forest · GridSearchCV</sub></p>
 
 > ### Tools
 

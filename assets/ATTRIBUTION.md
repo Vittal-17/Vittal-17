@@ -1,6 +1,10 @@
 # Asset credits
 
 - `coding-desk.gif`: **Late Sleep**, pixel art and animation by **Kirokaze Pixel**. [Original artwork](https://www.behance.net/gallery/176249761/Late-Sleep). [Artist](https://www.behance.net/kirokaze). The original artist signature is preserved, and the README links to the artwork. This third-party artwork is not covered by the Devicon license below.
-- Tech icons in `icons/`: [Devicon v2.17.0](https://github.com/devicons/devicon/tree/v2.17.0/icons), MIT licensed. Full license in [icons/DEVICON-LICENSE.txt](icons/DEVICON-LICENSE.txt). Django, Flask, and Vercel use a light foreground for dark-background legibility. Product names and logos belong to their respective owners.
+- Devicon tech icons in `icons/`: [Devicon v2.17.0](https://github.com/devicons/devicon/tree/v2.17.0/icons), MIT licensed. Full license in [icons/DEVICON-LICENSE.txt](icons/DEVICON-LICENSE.txt). Django, Flask, Three.js, and Vercel use a light foreground for dark-background legibility. Product names and logos belong to their respective owners.
+- `icons/convex.svg`: official color symbol from [Convex's brand assets](https://www.convex.dev/brand).
+- `icons/civo.svg`: official green favicon mark from [Civo](https://www.civo.com/assets-rebrand/favicons/favicon.svg); [brand assets](https://www.civo.com/brand-assets).
+- `icons/render.svg`: official logomark from [Render's website](https://render.com/), using a light foreground for the dark profile background.
+- Random Forest and GridSearchCV are represented by scikit-learn's logo with readable labels, rather than separate product marks.
 - LinkedIn, email, and portfolio link buttons: locally drawn SVG marks.
 - Profile cards: locally generated SVGs from `render_cards.py`, recreated from the user-supplied visual reference.
