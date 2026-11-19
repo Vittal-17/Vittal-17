@@ -1,10 +1,10 @@
 {
   "_note": "Public GitHub contribution calendar; streaks cover the displayed period.",
   "_updated": "2026-11-19",
-  "total": 339,
+  "total": 335,
   "current_streak": 2,
   "longest_streak": 11,
-  "active_days": 72,
+  "active_days": 69,
   "period_start": "2025-11-16",
   "period_end": "2026-11-19",
   "days": [
@@ -1650,18 +1650,18 @@
     },
     {
       "date": "2026-10-10",
-      "level": 1,
-      "count": 1
+      "level": 0,
+      "count": 0
     },
     {
       "date": "2026-10-11",
-      "level": 1,
-      "count": 1
+      "level": 0,
+      "count": 0
     },
     {
       "date": "2026-10-12",
-      "level": 1,
-      "count": 3
+      "level": 0,
+      "count": 0
     },
     {
       "date": "2026-10-13",
@@ -1851,7 +1851,7 @@
     {
       "date": "2026-11-19",
       "level": 2,
-      "count": 5
+      "count": 6
     }
   ],
   "weeks": [
@@ -3590,20 +3590,20 @@
       },
       {
         "date": "2026-10-10",
-        "level": 1,
-        "count": 1
+        "level": 0,
+        "count": 0
       }
     ],
     [
       {
         "date": "2026-10-11",
-        "level": 1,
-        "count": 1
+        "level": 0,
+        "count": 0
       },
       {
         "date": "2026-10-12",
-        "level": 1,
-        "count": 3
+        "level": 0,
+        "count": 0
       },
       {
         "date": "2026-10-13",
@@ -3803,7 +3803,7 @@
       {
         "date": "2026-11-19",
         "level": 2,
-        "count": 5
+        "count": 6
       },
       {
         "date": "2026-11-20",
