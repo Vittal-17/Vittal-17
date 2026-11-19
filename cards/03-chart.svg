@@ -63,67 +63,13 @@
 <line x1="0" y1="108" x2="1280" y2="108" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/>
 <line x1="0" y1="162" x2="1280" y2="162" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/>
 <line x1="0" y1="216" x2="1280" y2="216" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/>
-<line x1="0" y1="270" x2="1280" y2="270" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/>
-  <line x1="40" y1="0" x2="40" y2="280" stroke="#92B346" stroke-width="4" opacity="0.95"
-        stroke-dasharray="280" stroke-dashoffset="280">
-    <animate attributeName="stroke-dashoffset" from="280" to="0" dur="0.6s" begin="0.05s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-  </line>
-<text x="59" y="40" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#60665F" letter-spacing="1.8">02 / CONTRIBUTION ACTIVITY</text>
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 -8" to="0 0" dur="0.4s" begin="0.08s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="510" y="12" width="170" height="52" rx="12"
-          fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/>
-
+<line x1="0" y1="270" x2="1280" y2="270" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/><line x1="40" y1="0" x2="40" y2="280" stroke="#92B346" stroke-width="4" opacity="0.95"/><text x="59" y="40" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#60665F" letter-spacing="1.8">02 / CONTRIBUTION ACTIVITY</text><rect x="510" y="12" width="170" height="52" rx="12" fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/>
   <circle cx="662" cy="22" r="4.5" fill="#92B346"/>
   <circle cx="662" cy="22" r="4.5" fill="#92B346" opacity="0.6">
-    <animate attributeName="r" values="4.5;13" dur="2.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4.5;13" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0" dur="2.8s" repeatCount="indefinite"/>
   </circle>
-
-    <text x="524" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20"
-          font-weight="800" fill="#171916">1d</text>
-    <text x="524" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10"
-          font-weight="600" fill="#60665F" letter-spacing="0.9">STREAK</text>
-  </g>
-
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 -8" to="0 0" dur="0.4s" begin="0.13s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="690" y="12" width="170" height="52" rx="12"
-          fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/>
-
-    <text x="704" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20"
-          font-weight="800" fill="#171916">71</text>
-    <text x="704" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10"
-          font-weight="600" fill="#60665F" letter-spacing="0.9">ACTIVE DAYS</text>
-  </g>
-
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 -8" to="0 0" dur="0.4s" begin="0.18s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="870" y="12" width="170" height="52" rx="12"
-          fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/>
-
-    <text x="884" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20"
-          font-weight="800" fill="#171916">06-25</text>
-    <text x="884" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10"
-          font-weight="600" fill="#60665F" letter-spacing="0.9">BUSIEST DAY</text>
-  </g>
-
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 -8" to="0 0" dur="0.4s" begin="0.23s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="1050" y="12" width="170" height="52" rx="12"
-          fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/>
-
-    <text x="1064" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20"
-          font-weight="800" fill="#171916">333</text>
-    <text x="1064" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10"
-          font-weight="600" fill="#60665F" letter-spacing="0.9">TOTAL YTD</text>
-  </g>
-<rect x="80" y="198" width="8" height="2" rx="1" fill="#DADDD1" opacity="0.4"/>
+<text x="524" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#171916">1d</text><text x="524" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#60665F" letter-spacing="0.9">STREAK</text><rect x="690" y="12" width="170" height="52" rx="12" fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/><text x="704" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#171916">71</text><text x="704" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#60665F" letter-spacing="0.9">ACTIVE DAYS</text><rect x="870" y="12" width="170" height="52" rx="12" fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/><text x="884" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#171916">06-25</text><text x="884" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#60665F" letter-spacing="0.9">BUSIEST DAY</text><rect x="1050" y="12" width="170" height="52" rx="12" fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/><text x="1064" y="34" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#171916">334</text><text x="1064" y="52" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#60665F" letter-spacing="0.9">TOTAL YTD</text><rect x="80" y="198" width="8" height="2" rx="1" fill="#DADDD1" opacity="0.4"/>
 <text x="84" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Dec</text>
 <rect x="181" y="198" width="8" height="2" rx="1" fill="#DADDD1" opacity="0.4"/>
 <text x="185" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Jan</text>
@@ -135,35 +81,35 @@
 <text x="488" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Apr</text>
 <rect x="585" y="198" width="8" height="2" rx="1" fill="#DADDD1" opacity="0.4"/>
 <text x="589" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">May</text>
-<rect x="666" y="183" width="48" height="17" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="17" begin="0.44s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-<animate attributeName="y" from="200" to="183" begin="0.44s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<rect x="666" y="183" width="48" height="17" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="17" begin="0.63s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<animate attributeName="y" from="200" to="183" begin="0.63s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
 </rect>
 <text x="690" y="177" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#60665F" text-anchor="middle">29</text>
 <text x="690" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Jun</text>
-<rect x="767" y="189" width="48" height="11" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="11" begin="0.48s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-<animate attributeName="y" from="200" to="189" begin="0.48s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<rect x="767" y="189" width="48" height="11" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="11" begin="0.71s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<animate attributeName="y" from="200" to="189" begin="0.71s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
 </rect>
 <text x="791" y="183" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#60665F" text-anchor="middle">20</text>
 <text x="791" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Jul</text>
-<rect x="868" y="179" width="48" height="21" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="21" begin="0.52s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-<animate attributeName="y" from="200" to="179" begin="0.52s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<rect x="868" y="179" width="48" height="21" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="21" begin="0.79s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<animate attributeName="y" from="200" to="179" begin="0.79s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
 </rect>
 <text x="892" y="173" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#60665F" text-anchor="middle">37</text>
 <text x="892" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Aug</text>
-<rect x="969" y="90" width="48" height="110" rx="6" fill="#D7FF68" stroke="#92B346" stroke-width="1.5"><animate attributeName="height" from="0" to="110" begin="0.56s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-<animate attributeName="y" from="200" to="90" begin="0.56s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-<animate attributeName="stroke-width" values="1.5;3;1.5" dur="2.4s" begin="1.26s" repeatCount="indefinite"/>
+<rect x="969" y="90" width="48" height="110" rx="6" fill="#D7FF68" stroke="#92B346" stroke-width="1.5"><animate attributeName="height" from="0" to="110" begin="0.87s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<animate attributeName="y" from="200" to="90" begin="0.87s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<animate attributeName="stroke-width" values="1.5;3.2;1.5" dur="3.0s" begin="2.27s" repeatCount="indefinite"/>
 </rect>
 <text x="993" y="84" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#171916" text-anchor="middle">186</text>
 <text x="993" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Sep</text>
-<rect x="1070" y="182" width="48" height="18" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="18" begin="0.60s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-<animate attributeName="y" from="200" to="182" begin="0.60s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<rect x="1070" y="182" width="48" height="18" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="18" begin="0.95s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<animate attributeName="y" from="200" to="182" begin="0.95s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
 </rect>
 <text x="1094" y="176" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#60665F" text-anchor="middle">32</text>
 <text x="1094" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Oct</text>
-<rect x="1171" y="184" width="48" height="16" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="16" begin="0.64s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-<animate attributeName="y" from="200" to="184" begin="0.64s" dur="0.65s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<rect x="1171" y="183" width="48" height="17" rx="6" fill="#F8F9F5" stroke="#DADDD1" stroke-width="1"><animate attributeName="height" from="0" to="17" begin="1.03s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+<animate attributeName="y" from="200" to="183" begin="1.03s" dur="1.4s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
 </rect>
-<text x="1195" y="178" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#60665F" text-anchor="middle">28</text>
+<text x="1195" y="177" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="700" fill="#60665F" text-anchor="middle">29</text>
 <text x="1195" y="220" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="11" font-weight="600" fill="#60665F" text-anchor="middle">Nov</text>
 <line x1="50" y1="200" x2="1230" y2="200" stroke="#DADDD1" stroke-width="1"/></svg>

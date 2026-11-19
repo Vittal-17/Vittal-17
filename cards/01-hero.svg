@@ -65,13 +65,7 @@
 <line x1="0" y1="216" x2="1280" y2="216" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/>
 <line x1="0" y1="270" x2="1280" y2="270" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/>
 <line x1="0" y1="324" x2="1280" y2="324" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/>
-<line x1="0" y1="378" x2="1280" y2="378" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/><ellipse cx="640" cy="420" rx="500" ry="240" fill="url(#orbGrad)" opacity="0.6"/>
-  <line x1="40" y1="0" x2="40" y2="420" stroke="#92B346" stroke-width="4" opacity="0.95"
-        stroke-dasharray="420" stroke-dashoffset="420">
-    <animate attributeName="stroke-dashoffset" from="420" to="0" dur="0.6s" begin="0.05s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-  </line>
-
+<line x1="0" y1="378" x2="1280" y2="378" stroke="#D1D5C6" stroke-width="0.9" opacity="0.15"/><ellipse cx="640" cy="420" rx="500" ry="240" fill="url(#orbGrad)" opacity="0.6"/><line x1="40" y1="0" x2="40" y2="420" stroke="#92B346" stroke-width="4" opacity="0.95"/>
   <rect x="53" y="28" width="42" height="42" rx="12" fill="#D7FF68"/>
   <text x="74" y="57" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800"
         fill="#171916" text-anchor="middle">V</text>
@@ -79,43 +73,17 @@
         fill="#171916" letter-spacing="0.35">VITTAL J G</text>
   <text x="105" y="64" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600"
         fill="#60665F" letter-spacing="0.9">FULL-STACK ENGINEER / BENGALURU</text>
-
-  <line x1="53" y1="90" x2="1230" y2="90" stroke="#DADDD1" stroke-width="1"
-        stroke-dasharray="1177" stroke-dashoffset="1177">
-    <animate attributeName="stroke-dashoffset" from="1177" to="0" dur="0.7s" begin="0.1s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-  </line>
-<text x="59" y="131" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#60665F" letter-spacing="1.8">01 / SOFTWARE · SYSTEMS · AI <tspan fill="#92B346">█<animate attributeName="opacity" values="1;0;1" dur="0.85s" repeatCount="indefinite"/></tspan></text>
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 14" to="0 0" dur="0.5s" begin="0.12s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <text x="54" y="225" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="800"
-          fill="#171916" letter-spacing="-4.7">Big ideas.</text>
-  </g>
-
-  <!-- Highlighter marker wipe effect -->
+<line x1="53" y1="90" x2="1230" y2="90" stroke="#DADDD1" stroke-width="1"/><text x="59" y="131" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#60665F" letter-spacing="1.8">01 / SOFTWARE · SYSTEMS · AI <tspan fill="#92B346">█<animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/></tspan></text><text x="54" y="225" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="800" fill="#171916" letter-spacing="-4.7">Big ideas.</text>
+  <!-- Highlighter marker wipe effect (1.6s deliberate reveal) -->
   <rect x="53" y="258" width="650" height="94" rx="12" fill="#D7FF68">
-    <animate attributeName="width" from="0" to="650" dur="0.65s" begin="0.25s" fill="freeze"
+    <animate attributeName="width" from="0" to="650" dur="1.6s" begin="0.2s" fill="freeze"
              calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+    <animate attributeName="fill-opacity" values="1;0.88;1" dur="4.5s" begin="2.0s" repeatCount="indefinite"/>
   </rect>
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="-14 0" to="0 0" dur="0.5s" begin="0.32s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <text x="62" y="336" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="800"
-          fill="#171916" letter-spacing="-5.0">Built for real.</text>
-  </g>
-<text x="57" y="378" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" fill="#171916">Thoughtful interfaces. Serious engineering.</text><text x="57" y="406" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#60665F">From the first database table to the final interaction.</text>
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="16 0" to="0 0" dur="0.5s" begin="0.15s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="1000" y="28" width="232" height="34" rx="17" fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/>
-
+<text x="62" y="336" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="800" fill="#171916" letter-spacing="-5.0">Built for real.</text><text x="57" y="378" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" fill="#171916">Thoughtful interfaces. Serious engineering.</text><text x="57" y="406" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#60665F">From the first database table to the final interaction.</text><rect x="1000" y="28" width="232" height="34" rx="17" fill="#FFFFFD" stroke="#DADDD1" stroke-width="1"/>
   <circle cx="1017" cy="45" r="4.5" fill="#92B346"/>
   <circle cx="1017" cy="45" r="4.5" fill="#92B346" opacity="0.6">
-    <animate attributeName="r" values="4.5;13" dur="2.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4.5;13" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0" dur="2.8s" repeatCount="indefinite"/>
   </circle>
-
-    <text x="1033" y="50" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#171916" letter-spacing="1.0">AVAILABLE FOR HIRE</text>
-  </g>
-</svg>
+<text x="1033" y="50" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#171916" letter-spacing="1.0">AVAILABLE FOR HIRE</text></svg>

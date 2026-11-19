@@ -34,7 +34,7 @@
   </filter>
 
 </defs>
-<rect width="1280" height="200" fill="url(#bgGradDark)"/><line x1="0" y1="0" x2="0" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="64" y1="0" x2="64" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="128" y1="0" x2="128" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="192" y1="0" x2="192" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="256" y1="0" x2="256" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="320" y1="0" x2="320" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="384" y1="0" x2="384" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="448" y1="0" x2="448" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="512" y1="0" x2="512" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="576" y1="0" x2="576" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="640" y1="0" x2="640" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="704" y1="0" x2="704" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="768" y1="0" x2="768" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="832" y1="0" x2="832" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="896" y1="0" x2="896" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="960" y1="0" x2="960" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1024" y1="0" x2="1024" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1088" y1="0" x2="1088" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1152" y1="0" x2="1152" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1216" y1="0" x2="1216" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1280" y1="0" x2="1280" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="0" x2="1280" y2="0" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="30" x2="1280" y2="30" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="60" x2="1280" y2="60" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="90" x2="1280" y2="90" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="120" x2="1280" y2="120" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="150" x2="1280" y2="150" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="180" x2="1280" y2="180" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><text x="59" y="32" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#C6D5B2" letter-spacing="1.8">05 / CONTRIBUTION GRAPH</text><text x="320" y="32" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#A1AB98">(333 contributions in the last year)</text><text x="111" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Dec</text><text x="179" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Jan</text><text x="247" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Feb</text><text x="315" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Mar</text><text x="400" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Apr</text><text x="468" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">May</text><text x="553" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Jun</text><text x="621" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Jul</text><text x="689" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Aug</text><text x="774" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Sep</text><text x="842" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Oct</text><text x="910" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Nov</text><rect x="60" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
+<rect width="1280" height="200" fill="url(#bgGradDark)"/><line x1="0" y1="0" x2="0" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="64" y1="0" x2="64" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="128" y1="0" x2="128" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="192" y1="0" x2="192" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="256" y1="0" x2="256" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="320" y1="0" x2="320" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="384" y1="0" x2="384" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="448" y1="0" x2="448" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="512" y1="0" x2="512" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="576" y1="0" x2="576" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="640" y1="0" x2="640" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="704" y1="0" x2="704" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="768" y1="0" x2="768" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="832" y1="0" x2="832" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="896" y1="0" x2="896" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="960" y1="0" x2="960" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1024" y1="0" x2="1024" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1088" y1="0" x2="1088" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1152" y1="0" x2="1152" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1216" y1="0" x2="1216" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="1280" y1="0" x2="1280" y2="200" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="0" x2="1280" y2="0" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="30" x2="1280" y2="30" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="60" x2="1280" y2="60" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="90" x2="1280" y2="90" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="120" x2="1280" y2="120" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="150" x2="1280" y2="150" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><line x1="0" y1="180" x2="1280" y2="180" stroke="#FFFFFF" stroke-width="0.8" opacity="0.04"/><text x="59" y="32" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="700" fill="#C6D5B2" letter-spacing="1.8">05 / CONTRIBUTION GRAPH</text><text x="320" y="32" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#A1AB98">(334 contributions in the last year)</text><text x="111" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Dec</text><text x="179" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Jan</text><text x="247" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Feb</text><text x="315" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Mar</text><text x="400" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Apr</text><text x="468" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">May</text><text x="553" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Jun</text><text x="621" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Jul</text><text x="689" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Aug</text><text x="774" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Sep</text><text x="842" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Oct</text><text x="910" y="54" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" font-weight="600" fill="#8E9988">Nov</text><rect x="60" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="60" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="60" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="60" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
@@ -42,12 +42,7 @@
 <rect x="60" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="60" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="77" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="77" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.14s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.14s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="77" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="77" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="77" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="77" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
@@ -259,30 +254,10 @@
 <rect x="587" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="587" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="587" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="587" y="113" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#D7FF68"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#E2FF7E"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="587" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="587" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="587" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.85s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="587" y="113" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8"/>
+<rect x="587" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="587" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="587" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="604" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="604" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="604" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
@@ -291,49 +266,14 @@
 <rect x="604" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="604" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="621" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="621" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="621" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="621" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="621" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="621" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="621" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="621" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="621" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="621" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.90s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="638" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.92s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.92s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="638" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.92s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.92s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="621" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="621" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="638" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="638" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="638" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="638" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="638" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
@@ -343,93 +283,33 @@
 <rect x="655" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="655" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="655" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="655" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.95s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.95s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="655" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="655" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="655" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="672" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="672" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="672" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="672" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="672" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.97s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.97s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="672" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="672" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="672" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.97s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.97s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="689" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="689" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="689" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="672" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="689" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="689" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="689" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="689" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="689" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="689" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="689" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="689" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="0.99s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="689" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="706" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="706" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.02s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.02s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="706" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="706" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="706" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="706" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="706" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="706" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.02s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.02s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="723" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.04s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.04s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="706" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="723" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="723" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="723" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.04s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.04s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="723" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="723" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="723" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="723" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
@@ -438,256 +318,66 @@
 <rect x="740" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="740" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="740" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="740" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.06s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.06s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="740" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.06s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.06s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="740" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.06s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.06s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="740" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="740" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="740" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="757" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="757" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="757" y="96" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="757" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="757" y="130" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="757" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="757" y="164" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.09s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="774" y="62" width="14" height="14" rx="3" fill="#98C638" stroke="#A4D43D" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#98C638"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#A4D43D"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="774" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="774" y="96" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="774" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="774" y="130" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="757" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="757" y="96" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="757" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="757" y="130" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="757" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="757" y="164" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="774" y="62" width="14" height="14" rx="3" fill="#98C638" stroke="#A4D43D" stroke-width="0.8"/>
+<rect x="774" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="774" y="96" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="774" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="774" y="130" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
 <rect x="774" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="774" y="164" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#D7FF68"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#E2FF7E"
-             keyTimes="0;0.25;0.6;1" begin="1.11s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="791" y="62" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#D7FF68"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#E2FF7E"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="791" y="79" width="14" height="14" rx="3" fill="#98C638" stroke="#A4D43D" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#98C638"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#A4D43D"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="791" y="96" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="791" y="113" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#D7FF68"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#E2FF7E"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="791" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="791" y="147" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#D7FF68"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#E2FF7E"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="791" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.13s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="774" y="164" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8"/>
+<rect x="791" y="62" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8"/>
+<rect x="791" y="79" width="14" height="14" rx="3" fill="#98C638" stroke="#A4D43D" stroke-width="0.8"/>
+<rect x="791" y="96" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="791" y="113" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8"/>
+<rect x="791" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="791" y="147" width="14" height="14" rx="3" fill="#D7FF68" stroke="#E2FF7E" stroke-width="0.8"/>
+<rect x="791" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="808" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="808" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.16s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.16s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="808" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.16s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.16s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="808" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="808" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="808" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="808" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="808" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="808" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="825" y="62" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="825" y="79" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="825" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="825" y="113" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="825" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.18s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="825" y="62" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="825" y="79" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="825" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="825" y="113" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="825" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="825" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="825" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="842" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.20s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.20s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="842" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="842" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="842" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="842" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="842" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="842" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.20s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.20s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="842" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.20s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.20s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="859" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="842" y="147" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="842" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="859" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="859" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="859" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="859" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="859" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="859" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="859" y="147" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="859" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.23s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="859" y="147" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="859" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="876" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="876" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="876" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="876" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="876" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="876" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="876" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.25s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.25s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="893" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.28s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.28s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="876" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="893" y="62" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="893" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="893" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="893" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
@@ -695,84 +385,47 @@
 <rect x="893" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="893" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="910" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="910" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="910" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="910" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="910" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="910" y="147" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#688A29"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#789F30"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-  </rect>
-  <rect x="910" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.30s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="910" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="910" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="910" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="910" y="130" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
+<rect x="910" y="147" width="14" height="14" rx="3" fill="#688A29" stroke="#789F30" stroke-width="0.8"/>
+<rect x="910" y="164" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="927" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="927" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.32s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.32s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="927" y="79" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="927" y="96" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="927" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.32s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.32s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="927" y="113" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="927" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="927" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="927" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="944" y="62" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="944" y="79" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
-  <rect x="944" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;#3E5219"
-             keyTimes="0;0.25;0.6;1" begin="1.35s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;#4A611E"
-             keyTimes="0;0.25;0.6;1" begin="1.35s" dur="0.45s" fill="freeze"/>
-  </rect>
+<rect x="944" y="96" width="14" height="14" rx="3" fill="#3E5219" stroke="#4A611E" stroke-width="0.8"/>
 <rect x="944" y="113" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="944" y="130" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="944" y="147" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <rect x="944" y="164" width="14" height="14" rx="3" fill="#161B14" stroke="#20271D" stroke-width="0.8"/>
 <text x="52" y="73" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="9" font-weight="600" fill="#8E9988" text-anchor="end">Mon</text><text x="52" y="107" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="9" font-weight="600" fill="#8E9988" text-anchor="end">Wed</text><text x="52" y="141" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="9" font-weight="600" fill="#8E9988" text-anchor="end">Fri</text><text x="52" y="175" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="9" font-weight="600" fill="#8E9988" text-anchor="end">Sun</text>
   <linearGradient id="scanBeam" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#D7FF68" stop-opacity="0"/>
-    <stop offset="45%" stop-color="#D7FF68" stop-opacity="0.25"/>
-    <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.55"/>
-    <stop offset="55%" stop-color="#D7FF68" stop-opacity="0.25"/>
+    <stop offset="0%"   stop-color="#D7FF68" stop-opacity="0"/>
+    <stop offset="35%"  stop-color="#D7FF68" stop-opacity="0.25"/>
+    <stop offset="50%"  stop-color="#FFFFFF" stop-opacity="0.60"/>
+    <stop offset="65%"  stop-color="#D7FF68" stop-opacity="0.25"/>
     <stop offset="100%" stop-color="#D7FF68" stop-opacity="0"/>
   </linearGradient>
-  <rect x="-20" y="54" width="70" height="131"
+  <rect x="-40" y="54" width="90" height="131"
         fill="url(#scanBeam)" rx="4">
-    <animate attributeName="x" from="-20" to="991"
-             begin="0.12s" dur="1.25s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.25 0.1 0.25 1"/>
-    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.92;1"
-             begin="0.12s" dur="1.25s" fill="freeze"/>
+    <animate attributeName="x"
+             values="-40; 1001; 1001"
+             keyTimes="0; 0.55; 1"
+             dur="5.5s"
+             repeatCount="indefinite"
+             calcMode="spline"
+             keySplines="0.25 0.1 0.25 1; 0 0 1 1"/>
+    <animate attributeName="opacity"
+             values="0; 1; 1; 0; 0"
+             keyTimes="0; 0.08; 0.48; 0.54; 1"
+             dur="5.5s"
+             repeatCount="indefinite"/>
   </rect>
 <text x="1060" y="184" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" fill="#8E9988">Less</text><rect x="1098" y="173" width="14" height="14" rx="3" fill="#161B14" stroke="#303828" stroke-width="0.8"/><rect x="1115" y="173" width="14" height="14" rx="3" fill="#3E5219" stroke="#303828" stroke-width="0.8"/><rect x="1132" y="173" width="14" height="14" rx="3" fill="#688A29" stroke="#303828" stroke-width="0.8"/><rect x="1149" y="173" width="14" height="14" rx="3" fill="#98C638" stroke="#303828" stroke-width="0.8"/><rect x="1166" y="173" width="14" height="14" rx="3" fill="#D7FF68" stroke="#303828" stroke-width="0.8"/><text x="1189" y="184" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" fill="#8E9988">More</text></svg>

@@ -23,12 +23,9 @@ Live Data:
   - Offline fallback to contributions.json
 
 Animations:
-  - High-craft SMIL load animations:
-      1. Highlighter marker wipe across "Built for real."
-      2. Fluid bar chart wave rise with quintic easing
-      3. Luminous scanline sweep + cell ignition on contribution calendar
-      4. Signature line drawing, terminal cursor blink, and radar ping status
-  - Always 100% visible (never stuck at opacity:0)
+  - Silky-smooth 60fps GPU-accelerated motion (no CPU color raster thrashing)
+  - Deliberate pacing (1.5s - 2.5s reveals + calm, rhythmic ambient living loops)
+  - Zero cheap neon laser slop
   - Full prefers-reduced-motion safety and STATIC=1 capture mode
 """
 
@@ -306,15 +303,7 @@ def grid_lines(width: int, height: int, step: int = 54) -> str:
     return "\n".join(lines)
 
 def accent_bar(height: int) -> str:
-    if STATIC:
-        return f'<line x1="40" y1="0" x2="40" y2="{height}" stroke="{OLIVE}" stroke-width="4" opacity="0.95"/>'
-    return f"""
-  <line x1="40" y1="0" x2="40" y2="{height}" stroke="{OLIVE}" stroke-width="4" opacity="0.95"
-        stroke-dasharray="{height}" stroke-dashoffset="{height}">
-    <animate attributeName="stroke-dashoffset" from="{height}" to="0" dur="0.6s" begin="0.05s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-  </line>
-"""
+    return f'<line x1="40" y1="0" x2="40" y2="{height}" stroke="{OLIVE}" stroke-width="4" opacity="0.95"/>'
 
 def logo_badge(x: int = 53, y: int = 28) -> str:
     return f"""
@@ -328,14 +317,14 @@ def logo_badge(x: int = 53, y: int = 28) -> str:
 """
 
 def status_dot(cx: int, cy: int, color: str = OLIVE) -> str:
-    """Clean status dot with a subtle pulse."""
+    """Clean status dot with a calm, visible breathing pulse."""
     if STATIC:
         return f'<circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}"/>'
     return f"""
   <circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}"/>
   <circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}" opacity="0.6">
-    <animate attributeName="r" values="4.5;13" dur="2.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="4.5;13" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0" dur="2.8s" repeatCount="indefinite"/>
   </circle>
 """
 
@@ -354,63 +343,37 @@ def render_hero(data: dict, font_uri: str | None) -> str:
 
     out.append(accent_bar(H))
     out.append(logo_badge())
-
-    # Header divider
-    if STATIC:
-        out.append(f'<line x1="53" y1="90" x2="{W-50}" y2="90" stroke="{CARD_STR}" stroke-width="1"/>')
-    else:
-        out.append(f"""
-  <line x1="53" y1="90" x2="{W-50}" y2="90" stroke="{CARD_STR}" stroke-width="1"
-        stroke-dasharray="{W-103}" stroke-dashoffset="{W-103}">
-    <animate attributeName="stroke-dashoffset" from="{W-103}" to="0" dur="0.7s" begin="0.1s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-  </line>
-""")
+    out.append(f'<line x1="53" y1="90" x2="{W-50}" y2="90" stroke="{CARD_STR}" stroke-width="1"/>')
 
     # Subtitle tag with blinking terminal cursor
-    cursor_blink = "" if STATIC else f'<tspan fill="{OLIVE}">█<animate attributeName="opacity" values="1;0;1" dur="0.85s" repeatCount="indefinite"/></tspan>'
+    cursor_blink = "" if STATIC else f'<tspan fill="{OLIVE}">█<animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/></tspan>'
     out.append(
         f'<text x="59" y="131" font-family="{MONO}" font-size="13" font-weight="700" '
         f'fill="{MUTED}" letter-spacing="1.8">01 / SOFTWARE · SYSTEMS · AI {cursor_blink}</text>'
     )
 
     # Big ideas.
-    if STATIC:
-        out.append(
-            f'<text x="54" y="225" font-family="{SANS}" font-size="96" font-weight="800" '
-            f'fill="{DARK}" letter-spacing="-4.7">Big ideas.</text>'
-        )
-    else:
-        out.append(f"""
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 14" to="0 0" dur="0.5s" begin="0.12s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <text x="54" y="225" font-family="{SANS}" font-size="96" font-weight="800"
-          fill="{DARK}" letter-spacing="-4.7">Big ideas.</text>
-  </g>
-""")
+    out.append(
+        f'<text x="54" y="225" font-family="{SANS}" font-size="96" font-weight="800" '
+        f'fill="{DARK}" letter-spacing="-4.7">Big ideas.</text>'
+    )
 
-    # Built for real. with Highlighter wipe effect
+    # Built for real. with smooth, deliberate 1.6s Highlighter marker wipe
     if STATIC:
         out.append(f'<rect x="53" y="258" width="650" height="94" rx="12" fill="{LIME}"/>')
-        out.append(
-            f'<text x="62" y="336" font-family="{SANS}" font-size="88" font-weight="800" '
-            f'fill="{DARK}" letter-spacing="-5.0">Built for real.</text>'
-        )
     else:
         out.append(f"""
-  <!-- Highlighter marker wipe effect -->
+  <!-- Highlighter marker wipe effect (1.6s deliberate reveal) -->
   <rect x="53" y="258" width="650" height="94" rx="12" fill="{LIME}">
-    <animate attributeName="width" from="0" to="650" dur="0.65s" begin="0.25s" fill="freeze"
+    <animate attributeName="width" from="0" to="650" dur="1.6s" begin="0.2s" fill="freeze"
              calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+    <animate attributeName="fill-opacity" values="1;0.88;1" dur="4.5s" begin="2.0s" repeatCount="indefinite"/>
   </rect>
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="-14 0" to="0 0" dur="0.5s" begin="0.32s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <text x="62" y="336" font-family="{SANS}" font-size="88" font-weight="800"
-          fill="{DARK}" letter-spacing="-5.0">Built for real.</text>
-  </g>
 """)
+    out.append(
+        f'<text x="62" y="336" font-family="{SANS}" font-size="88" font-weight="800" '
+        f'fill="{DARK}" letter-spacing="-5.0">Built for real.</text>'
+    )
 
     # Supporting copy
     out.append(
@@ -422,21 +385,10 @@ def render_hero(data: dict, font_uri: str | None) -> str:
         f'fill="{MUTED}">From the first database table to the final interaction.</text>'
     )
 
-    # Status pill with slide-in
-    if STATIC:
-        out.append(f'<rect x="{W-280}" y="28" width="232" height="34" rx="17" fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>')
-        out.append(status_dot(W - 263, 45, color=OLIVE))
-        out.append(f'<text x="{W-247}" y="50" font-family="{MONO}" font-size="13" font-weight="700" fill="{DARK}" letter-spacing="1.0">AVAILABLE FOR HIRE</text>')
-    else:
-        out.append(f"""
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="16 0" to="0 0" dur="0.5s" begin="0.15s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="{W-280}" y="28" width="232" height="34" rx="17" fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>
-    {status_dot(W - 263, 45, color=OLIVE)}
-    <text x="{W-247}" y="50" font-family="{MONO}" font-size="13" font-weight="700" fill="{DARK}" letter-spacing="1.0">AVAILABLE FOR HIRE</text>
-  </g>
-""")
+    # Status pill with calm breathing pulse
+    out.append(f'<rect x="{W-280}" y="28" width="232" height="34" rx="17" fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>')
+    out.append(status_dot(W - 263, 45, color=OLIVE))
+    out.append(f'<text x="{W-247}" y="50" font-family="{MONO}" font-size="13" font-weight="700" fill="{DARK}" letter-spacing="1.0">AVAILABLE FOR HIRE</text>')
 
     out.append(svg_close())
     return "".join(out)
@@ -449,7 +401,7 @@ LINKS = [
     {"label": "LINKEDIN",  "sub": "linkedin.com/in/vittal-dev",     "url": "https://www.linkedin.com/in/vittal-dev/", "accent": LIME,  "slug": "linkedin"},
 ]
 
-def render_link_tile(lnk: dict, delay: float, font_uri: str | None) -> str:
+def render_link_tile(lnk: dict, font_uri: str | None) -> str:
     TW, TH = 420, 140
 
     out = [svg_open(TW, TH, lnk["label"])]
@@ -461,17 +413,7 @@ def render_link_tile(lnk: dict, delay: float, font_uri: str | None) -> str:
     for y in range(0, TH + 1, 42):
         out.append(f'<line x1="0" y1="{y}" x2="{TW}" y2="{y}" stroke="{GRID}" stroke-width="0.9" opacity="0.15"/>')
 
-    # Left accent bar draw
-    if STATIC:
-        out.append(f'<line x1="12" y1="0" x2="12" y2="{TH}" stroke="{OLIVE}" stroke-width="3" opacity="0.95"/>')
-    else:
-        out.append(f"""
-  <line x1="12" y1="0" x2="12" y2="{TH}" stroke="{OLIVE}" stroke-width="3" opacity="0.95"
-        stroke-dasharray="{TH}" stroke-dashoffset="{TH}">
-    <animate attributeName="stroke-dashoffset" from="{TH}" to="0" dur="0.45s" begin="0.05s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-  </line>
-""")
+    out.append(f'<line x1="12" y1="0" x2="12" y2="{TH}" stroke="{OLIVE}" stroke-width="3" opacity="0.95"/>')
 
     sep_y = TH - 50
 
@@ -501,7 +443,7 @@ def render_link_tile(lnk: dict, delay: float, font_uri: str | None) -> str:
         f'fill="{MUTED}">{esc(lnk["sub"])}</text>'
     )
 
-    # Diagonal Arrow ↗ Launch
+    # Diagonal Arrow ↗ with calm, continuous glide loop
     if STATIC:
         out.append(
             f'<text x="{TW-26}" y="38" font-family="{SANS}" font-size="20" '
@@ -510,8 +452,8 @@ def render_link_tile(lnk: dict, delay: float, font_uri: str | None) -> str:
     else:
         out.append(f"""
   <g>
-    <animateTransform attributeName="transform" type="translate" from="-6 6" to="0 0" dur="0.4s" begin="0.12s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+    <animateTransform attributeName="transform" type="translate" values="0 0; 3 -3; 0 0" keyTimes="0; 0.25; 1"
+                     dur="4.0s" repeatCount="indefinite" calcMode="spline" keySplines="0.2 0.8 0.2 1; 0.2 0.8 0.2 1"/>
     <text x="{TW-26}" y="38" font-family="{SANS}" font-size="20"
           fill="{MUTED}" text-anchor="end" font-weight="600">↗</text>
   </g>
@@ -555,7 +497,7 @@ def render_chart(data: dict, font_uri: str | None) -> str:
         f'fill="{MUTED}" letter-spacing="1.8">02 / CONTRIBUTION ACTIVITY</text>'
     )
 
-    # Real stats pills with staggered entrance
+    # Real stats pills
     stats = [
         (f"{streak}d", "STREAK", True),
         (f"{active}", "ACTIVE DAYS", False),
@@ -565,38 +507,22 @@ def render_chart(data: dict, font_uri: str | None) -> str:
     pw = 170
     for si, (val, lbl, has_dot) in enumerate(stats):
         px = W - 50 - (len(stats)-si) * (pw + 10)
-        if STATIC:
-            out.append(
-                f'<rect x="{px}" y="12" width="{pw}" height="52" rx="12" '
-                f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>'
-            )
-            if has_dot:
-                out.append(status_dot(px + pw - 18, 22, color=OLIVE))
-            out.append(
-                f'<text x="{px+14}" y="34" font-family="{SANS}" font-size="20" '
-                f'font-weight="800" fill="{DARK}">{esc(val)}</text>'
-            )
-            out.append(
-                f'<text x="{px+14}" y="52" font-family="{MONO}" font-size="10" '
-                f'font-weight="600" fill="{MUTED}" letter-spacing="0.9">{esc(lbl)}</text>'
-            )
-        else:
-            t_si = 0.08 + si * 0.05
-            out.append(f"""
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 -8" to="0 0" dur="0.4s" begin="{t_si:.2f}s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="{px}" y="12" width="{pw}" height="52" rx="12"
-          fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>
-    {status_dot(px + pw - 18, 22, color=OLIVE) if has_dot else ""}
-    <text x="{px+14}" y="34" font-family="{SANS}" font-size="20"
-          font-weight="800" fill="{DARK}">{esc(val)}</text>
-    <text x="{px+14}" y="52" font-family="{MONO}" font-size="10"
-          font-weight="600" fill="{MUTED}" letter-spacing="0.9">{esc(lbl)}</text>
-  </g>
-""")
+        out.append(
+            f'<rect x="{px}" y="12" width="{pw}" height="52" rx="12" '
+            f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>'
+        )
+        if has_dot:
+            out.append(status_dot(px + pw - 18, 22, color=OLIVE))
+        out.append(
+            f'<text x="{px+14}" y="34" font-family="{SANS}" font-size="20" '
+            f'font-weight="800" fill="{DARK}">{esc(val)}</text>'
+        )
+        out.append(
+            f'<text x="{px+14}" y="52" font-family="{MONO}" font-size="10" '
+            f'font-weight="600" fill="{MUTED}" letter-spacing="0.9">{esc(lbl)}</text>'
+        )
 
-    # Bars representing real activity with fluid wave rise
+    # Bars representing real activity with smooth, deliberate 1.5s wave rise
     for i, m in enumerate(months):
         bh = int(m["count"] / max_c * BAR_MAX_H) if max_c > 0 else 0
         bx = LEFT + i * (BAR_W + BAR_GAP)
@@ -606,7 +532,7 @@ def render_chart(data: dict, font_uri: str | None) -> str:
         stroke = OLIVE if is_peak else (CARD_STR if m["count"] > 0 else "none")
 
         if bh > 0:
-            stagger = 0.2 + i * 0.04
+            stagger = 0.15 + i * 0.08
             out.append(
                 f'<rect x="{bx}" y="{by}" width="{BAR_W}" height="{bh}" rx="6" '
                 f'fill="{fill}" stroke="{stroke}" stroke-width="{1.5 if is_peak else 1}">'
@@ -614,15 +540,15 @@ def render_chart(data: dict, font_uri: str | None) -> str:
             if not STATIC:
                 out.append(
                     f'<animate attributeName="height" from="0" to="{bh}" '
-                    f'begin="{stagger:.2f}s" dur="0.65s" fill="freeze" '
+                    f'begin="{stagger:.2f}s" dur="1.4s" fill="freeze" '
                     f'calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>\n'
                     f'<animate attributeName="y" from="{BOTTOM}" to="{by}" '
-                    f'begin="{stagger:.2f}s" dur="0.65s" fill="freeze" '
+                    f'begin="{stagger:.2f}s" dur="1.4s" fill="freeze" '
                     f'calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>\n'
                 )
                 if is_peak:
                     out.append(
-                        f'<animate attributeName="stroke-width" values="1.5;3;1.5" dur="2.4s" begin="{stagger+0.7:.2f}s" repeatCount="indefinite"/>\n'
+                        f'<animate attributeName="stroke-width" values="1.5;3.2;1.5" dur="3.0s" begin="{stagger+1.4:.2f}s" repeatCount="indefinite"/>\n'
                     )
             out.append("</rect>\n")
         else:
@@ -663,7 +589,6 @@ LANG_COLOR = {
 
 def render_repo(repo: dict, idx: int, font_uri: str | None) -> str:
     H      = 190
-    delay  = 0.05 + idx * 0.04
 
     CARD_L = 53
     CARD_R = W - 53
@@ -699,41 +624,20 @@ def render_repo(repo: dict, idx: int, font_uri: str | None) -> str:
         f'fill="{INNER_BG}" clip-path="url(#{clip_id})"/>'
     )
 
-    # Clean divider line draw
-    if STATIC:
-        out.append(
-            f'<line x1="{DIV_X}" y1="{CARD_T + 14}" x2="{DIV_X}" y2="{CARD_B - 14}" '
-            f'stroke="{CARD_STR}" stroke-width="1"/>'
-        )
-    else:
-        out.append(f"""
-  <line x1="{DIV_X}" y1="{CARD_T + 14}" x2="{DIV_X}" y2="{CARD_B - 14}"
-        stroke="{CARD_STR}" stroke-width="1"
-        stroke-dasharray="130" stroke-dashoffset="130">
-    <animate attributeName="stroke-dashoffset" from="130" to="0" dur="0.45s" begin="{delay+0.05:.2f}s" fill="freeze"
-             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-  </line>
-""")
+    # Clean divider line
+    out.append(
+        f'<line x1="{DIV_X}" y1="{CARD_T + 14}" x2="{DIV_X}" y2="{CARD_B - 14}" '
+        f'stroke="{CARD_STR}" stroke-width="1"/>'
+    )
 
     # ── Left Panel ───────────────────────────────────────────────────────────
     chip_x, chip_y = CARD_L + 17, CARD_T + 14
 
-    if STATIC:
-        out.append(f'<rect x="{chip_x}" y="{chip_y}" width="32" height="28" rx="8" fill="{LIME}"/>')
-        out.append(
-            f'<text x="{chip_x + 16}" y="{chip_y + 20}" font-family="{MONO}" font-size="13" '
-            f'font-weight="800" fill="{DARK}" text-anchor="middle">{idx+1:02d}</text>'
-        )
-    else:
-        out.append(f"""
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 -8" to="0 0" dur="0.35s" begin="{delay:.2f}s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="{chip_x}" y="{chip_y}" width="32" height="28" rx="8" fill="{LIME}"/>
-    <text x="{chip_x + 16}" y="{chip_y + 20}" font-family="{MONO}" font-size="13"
-          font-weight="800" fill="{DARK}" text-anchor="middle">{idx+1:02d}</text>
-  </g>
-""")
+    out.append(f'<rect x="{chip_x}" y="{chip_y}" width="32" height="28" rx="8" fill="{LIME}"/>')
+    out.append(
+        f'<text x="{chip_x + 16}" y="{chip_y + 20}" font-family="{MONO}" font-size="13" '
+        f'font-weight="800" fill="{DARK}" text-anchor="middle">{idx+1:02d}</text>'
+    )
 
     out.append(
         f'<text x="{CARD_L + 60}" y="{CARD_T + 36}" font-family="{SANS}" font-size="21" '
@@ -749,36 +653,22 @@ def render_repo(repo: dict, idx: int, font_uri: str | None) -> str:
             f'{esc(line)}</text>'
         )
 
-    # Topics staggered entrance
+    # Topics
     tx   = CARD_L + 17
     ty   = CARD_B - 46
-    for ti, topic in enumerate(repo["topics"][:5]):
+    for topic in repo["topics"][:5]:
         tw = len(topic) * 7 + 26
         if tx + tw > DIV_X - 10:
             break
-        if STATIC:
-            out.append(
-                f'<rect x="{tx}" y="{ty}" width="{tw}" height="26" rx="12" '
-                f'fill="{CARD_BG}" stroke="{INNER_STR}" stroke-width="1"/>'
-            )
-            out.append(f'<circle cx="{tx + 13}" cy="{ty + 13}" r="4" fill="{OLIVE}"/>')
-            out.append(
-                f'<text x="{tx + 24}" y="{ty + 18}" font-family="{SANS}" font-size="11" '
-                f'font-weight="600" fill="{DARK}">{esc(topic)}</text>'
-            )
-        else:
-            t_tag = delay + 0.1 + ti * 0.04
-            out.append(f"""
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 5" to="0 0" dur="0.3s" begin="{t_tag:.2f}s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="{tx}" y="{ty}" width="{tw}" height="26" rx="12"
-          fill="{CARD_BG}" stroke="{INNER_STR}" stroke-width="1"/>
-    <circle cx="{tx + 13}" cy="{ty + 13}" r="4" fill="{OLIVE}"/>
-    <text x="{tx + 24}" y="{ty + 18}" font-family="{SANS}" font-size="11"
-          font-weight="600" fill="{DARK}">{esc(topic)}</text>
-  </g>
-""")
+        out.append(
+            f'<rect x="{tx}" y="{ty}" width="{tw}" height="26" rx="12" '
+            f'fill="{CARD_BG}" stroke="{INNER_STR}" stroke-width="1"/>'
+        )
+        out.append(f'<circle cx="{tx + 13}" cy="{ty + 13}" r="4" fill="{OLIVE}"/>')
+        out.append(
+            f'<text x="{tx + 24}" y="{ty + 18}" font-family="{SANS}" font-size="11" '
+            f'font-weight="600" fill="{DARK}">{esc(topic)}</text>'
+        )
         tx += tw + 8
 
     # ── Right Panel ──────────────────────────────────────────────────────────
@@ -791,8 +681,9 @@ def render_repo(repo: dict, idx: int, font_uri: str | None) -> str:
         f'font-weight="600" fill="{DARK}">{esc(repo.get("language", ""))}</text>'
     )
 
+    # Star count
     out.append(
-        f'<text x="{CARD_R - 20}" y="{RP_TOP + 12}" font-family="{MONO}" font-size="13" '
+        f'<text x="{CARD_R - 24}" y="{RP_TOP + 12}" font-family="{MONO}" font-size="13" '
         f'font-weight="800" fill="{DARK}" text-anchor="end">★ {repo.get("stars", 0)}</text>'
     )
 
@@ -809,40 +700,29 @@ def render_repo(repo: dict, idx: int, font_uri: str | None) -> str:
     live_x   = DIV_X + 16
     src_x    = live_x + btn_w + 8
 
+    # LIVE button with calm breathing fill
     if STATIC:
         out.append(
             f'<rect x="{live_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" fill="{LIME}"/>'
         )
-        out.append(
-            f'<text x="{live_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}" '
-            f'font-size="11" font-weight="800" fill="{DARK}" text-anchor="middle">LIVE ↗</text>'
-        )
-        out.append(
-            f'<rect x="{src_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" '
-            f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>'
-        )
-        out.append(
-            f'<text x="{src_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}" '
-            f'font-size="11" font-weight="700" fill="{MUTED}" text-anchor="middle">SOURCE ↗</text>'
-        )
     else:
         out.append(f"""
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 6" to="0 0" dur="0.35s" begin="{delay + 0.14:.2f}s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="{live_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" fill="{LIME}"/>
-    <text x="{live_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}"
-          font-size="11" font-weight="800" fill="{DARK}" text-anchor="middle">LIVE ↗</text>
-  </g>
-  <g>
-    <animateTransform attributeName="transform" type="translate" from="0 6" to="0 0" dur="0.35s" begin="{delay + 0.18:.2f}s" fill="freeze"
-                     calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
-    <rect x="{src_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14"
-          fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>
-    <text x="{src_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}"
-          font-size="11" font-weight="700" fill="{MUTED}" text-anchor="middle">SOURCE ↗</text>
-  </g>
+  <rect x="{live_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" fill="{LIME}">
+    <animate attributeName="fill-opacity" values="1;0.82;1" dur="3.2s" repeatCount="indefinite"/>
+  </rect>
 """)
+    out.append(
+        f'<text x="{live_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}" '
+        f'font-size="11" font-weight="800" fill="{DARK}" text-anchor="middle">LIVE ↗</text>'
+    )
+    out.append(
+        f'<rect x="{src_x}" y="{btn_y}" width="{btn_w}" height="{btn_h}" rx="14" '
+        f'fill="{CARD_BG}" stroke="{CARD_STR}" stroke-width="1"/>'
+    )
+    out.append(
+        f'<text x="{src_x + btn_w // 2}" y="{btn_y + 21}" font-family="{MONO}" '
+        f'font-size="11" font-weight="700" fill="{MUTED}" text-anchor="middle">SOURCE ↗</text>'
+    )
 
     out.append(svg_close())
     return "".join(out)
@@ -850,7 +730,7 @@ def render_repo(repo: dict, idx: int, font_uri: str | None) -> str:
 # ─────────── Card 05 · Contribution Graph ──────────────────────────────────
 
 def render_graph(data: dict, font_uri: str | None) -> str:
-    """Render a clean GitHub-style contribution heatmap matching real profile data with scanline sweep."""
+    """Render a clean GitHub-style contribution heatmap with a silky smooth GPU-accelerated scanline sweep."""
     H       = 200
     weeks   = data.get("graph_weeks", [])
     CELL    = 14
@@ -909,25 +789,16 @@ def render_graph(data: dict, font_uri: str | None) -> str:
                 last_m = day.month
                 break
 
-    # Real heatmap cells with ignition ripple as the scan beam passes over them
+    # Real heatmap cells — 100% static, rock-solid 60 FPS, ZERO CPU color thrashing
     for wi, week in enumerate(weeks):
         for di, val in enumerate(week):
             cx = GRID_X + wi * (CELL + GAP)
             cy = GRID_Y + di * (CELL + GAP)
             bg, st = cell_color(val)
-            if STATIC or val == 0:
-                out.append(
-                    f'<rect x="{cx}" y="{cy}" width="{CELL}" height="{CELL}" rx="3" '
-                    f'fill="{bg}" stroke="{st}" stroke-width="0.8"/>\n'
-                )
-            else:
-                t_ignite = 0.12 + (wi / (len(weeks) or 1)) * 1.25
-                out.append(f"""  <rect x="{cx}" y="{cy}" width="{CELL}" height="{CELL}" rx="3" fill="{bg}" stroke="{st}" stroke-width="0.8">
-    <animate attributeName="fill" values="#161B14;#FFFFFF;#D7FF68;{bg}"
-             keyTimes="0;0.25;0.6;1" begin="{t_ignite:.2f}s" dur="0.45s" fill="freeze"/>
-    <animate attributeName="stroke" values="#20271D;#FFFFFF;#D7FF68;{st}"
-             keyTimes="0;0.25;0.6;1" begin="{t_ignite:.2f}s" dur="0.45s" fill="freeze"/>
-  </rect>\n""")
+            out.append(
+                f'<rect x="{cx}" y="{cy}" width="{CELL}" height="{CELL}" rx="3" '
+                f'fill="{bg}" stroke="{st}" stroke-width="0.8"/>\n'
+            )
 
     for di, lbl in enumerate(DAYS):
         if lbl:
@@ -937,22 +808,30 @@ def render_graph(data: dict, font_uri: str | None) -> str:
                 f'font-weight="600" fill="#8E9988" text-anchor="end">{lbl}</text>'
             )
 
-    # Luminous scanline sweep across the calendar
+    # Silky-smooth 60fps GPU-accelerated Luminous Radar Beam (sweeps every 5.5s)
     if not STATIC:
         out.append(f"""
   <linearGradient id="scanBeam" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#D7FF68" stop-opacity="0"/>
-    <stop offset="45%" stop-color="#D7FF68" stop-opacity="0.25"/>
-    <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.55"/>
-    <stop offset="55%" stop-color="#D7FF68" stop-opacity="0.25"/>
+    <stop offset="0%"   stop-color="#D7FF68" stop-opacity="0"/>
+    <stop offset="35%"  stop-color="#D7FF68" stop-opacity="0.25"/>
+    <stop offset="50%"  stop-color="#FFFFFF" stop-opacity="0.60"/>
+    <stop offset="65%"  stop-color="#D7FF68" stop-opacity="0.25"/>
     <stop offset="100%" stop-color="#D7FF68" stop-opacity="0"/>
   </linearGradient>
-  <rect x="{GRID_X - 80}" y="{GRID_Y - 8}" width="70" height="{7 * (CELL + GAP) + 12}"
+  <rect x="{GRID_X - 100}" y="{GRID_Y - 8}" width="90" height="{7 * (CELL + GAP) + 12}"
         fill="url(#scanBeam)" rx="4">
-    <animate attributeName="x" from="{GRID_X - 80}" to="{GRID_X + len(weeks) * (CELL + GAP) + 30}"
-             begin="0.12s" dur="1.25s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.25 0.1 0.25 1"/>
-    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.92;1"
-             begin="0.12s" dur="1.25s" fill="freeze"/>
+    <animate attributeName="x"
+             values="{GRID_X - 100}; {GRID_X + len(weeks) * (CELL + GAP) + 40}; {GRID_X + len(weeks) * (CELL + GAP) + 40}"
+             keyTimes="0; 0.55; 1"
+             dur="5.5s"
+             repeatCount="indefinite"
+             calcMode="spline"
+             keySplines="0.25 0.1 0.25 1; 0 0 1 1"/>
+    <animate attributeName="opacity"
+             values="0; 1; 1; 0; 0"
+             keyTimes="0; 0.08; 0.48; 0.54; 1"
+             dur="5.5s"
+             repeatCount="indefinite"/>
   </rect>
 """)
 
@@ -1030,7 +909,7 @@ def main():
     OUT.mkdir(exist_ok=True)
     data   = fetch_and_load_data("Vittal-17")
     repos  = data["repos"]
-    mode   = "STATIC" if STATIC else "ANIMATED (HIGH CRAFT)"
+    mode   = "STATIC" if STATIC else "ANIMATED (60FPS HIGH CRAFT)"
     print(f"🎨  render_cards.py — {mode} mode")
 
     print("   subsetting font…")
@@ -1051,7 +930,7 @@ def main():
     # 02 link tiles
     for lnk in LINKS:
         path = OUT / f"02-link-{lnk['slug']}.svg"
-        path.write_text(render_link_tile(lnk, 0.05, font_uri), encoding="utf-8")
+        path.write_text(render_link_tile(lnk, font_uri), encoding="utf-8")
         cards.append(str(path))
         print(f"   ✓ {path.name}")
 
