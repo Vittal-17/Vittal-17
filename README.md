@@ -1,129 +1,142 @@
-<h1 align="center">Hey 🧙‍♂️ I'm vittal-17</h1>
+<h1 align="center">Hey, I'm Vittal!</h1>
 
 <p align="center">
   <img src="./assets/coding-desk.gif" width="100%" alt="Late Sleep by Kirokaze — a pixel-art developer asleep at a desk beside a glowing blue monitor"/>
 </p>
 
-## 📌 About Me
+## About me
 
-> 💡 Full-stack developer building Python backends, AI-powered products, and automations that do the boring stuff for you.
+I build software wherever the problem takes me—across AI systems, machine learning, automation, cloud infrastructure, Python backends and web applications.
 
-## 📊 GitHub Stats & Activity
+My projects range from document-grounded AI and prediction services to e-commerce and autonomous job intelligence. I take ownership from architecture through production: building the interfaces, connecting the systems, testing the edge cases, and deploying and operating what I ship.
 
-<p align="center">
-  <img src="./cards/signal.svg" width="370" alt="GitHub profile stats: stars, contributions, public repositories and followers"/>
-  <img src="./cards/streak.svg" width="370" alt="Contributions, current streak and best streak over the last 12 months"/>
-</p>
+## A few things I've shipped
 
-<p align="center">
-  <img src="./cards/languages.svg" width="100%" alt="Language stack across my public source repositories"/>
-</p>
-
-<p align="center">
-  <img src="./cards/highlights.svg" width="100%" alt="Open source, impact and community highlights"/>
-</p>
-
-<p align="center">
-  <img src="./cards/activity.svg" width="100%" alt="My GitHub contribution calendar for the last year"/>
-</p>
-
-## 🛠️ Languages & Tools
-
-> ### Programming Languages
-
-<p align="center">
-  <img src="./assets/icons/javascript.svg" width="42" height="42" alt="JavaScript" title="JavaScript"/>&nbsp;
-  <img src="./assets/icons/typescript.svg" width="42" height="42" alt="TypeScript" title="TypeScript"/>&nbsp;
-  <img src="./assets/icons/python.svg" width="42" height="42" alt="Python" title="Python"/>&nbsp;
-</p>
-
-> ### Frontend
-
-<p align="center">
-  <img src="./assets/icons/react.svg" width="42" height="42" alt="React" title="React"/>&nbsp;
-  <img src="./assets/icons/nextjs.svg" width="42" height="42" alt="Next.js" title="Next.js"/>&nbsp;
-  <img src="./assets/icons/html5.svg" width="42" height="42" alt="HTML5" title="HTML5"/>&nbsp;
-  <img src="./assets/icons/css3.svg" width="42" height="42" alt="CSS3" title="CSS3"/>&nbsp;
-  <img src="./assets/icons/tailwindcss.svg" width="42" height="42" alt="Tailwind CSS" title="Tailwind CSS"/>&nbsp;
-  <img src="./assets/icons/threejs.svg" width="42" height="42" alt="Three.js" title="Three.js"/>&nbsp;
-</p>
-
-> ### Backend
-
-<p align="center">
-  <img src="./assets/icons/fastapi.svg" width="42" height="42" alt="FastAPI" title="FastAPI"/>&nbsp;
-  <img src="./assets/icons/django.svg" width="42" height="42" alt="Django REST Framework" title="Django REST Framework"/>&nbsp;
-  <img src="./assets/icons/flask.svg" width="42" height="42" alt="Flask" title="Flask"/>&nbsp;
-  <img src="./assets/icons/convex.svg" width="42" height="42" alt="Convex" title="Convex"/>&nbsp;
-</p>
-
-> ### Database
-
-<p align="center">
-  <img src="./assets/icons/postgresql.svg" width="42" height="42" alt="PostgreSQL" title="PostgreSQL"/>&nbsp;
-  <img src="./assets/icons/mongodb.svg" width="42" height="42" alt="MongoDB Atlas" title="MongoDB Atlas"/>&nbsp;
-  <img src="./assets/icons/mysql.svg" width="42" height="42" alt="MySQL" title="MySQL"/>&nbsp;
-  <img src="./assets/icons/sqlite.svg" width="42" height="42" alt="SQLite" title="SQLite"/>&nbsp;
-  <img src="./assets/icons/convex.svg" width="42" height="42" alt="Convex" title="Convex"/>&nbsp;
-</p>
-
-> ### DevOps & Cloud
-
-<p align="center">
-  <img src="./assets/icons/docker.svg" width="42" height="42" alt="Docker" title="Docker"/>&nbsp;
-  <img src="./assets/icons/oracle.svg" width="42" height="42" alt="Oracle Cloud" title="Oracle Cloud"/>&nbsp;
-  <img src="./assets/icons/githubactions.svg" width="42" height="42" alt="GitHub Actions" title="GitHub Actions"/>&nbsp;
-  <img src="./assets/icons/vercel.svg" width="42" height="42" alt="Vercel" title="Vercel"/>&nbsp;
-  <img src="./assets/icons/civo.svg" width="42" height="42" alt="Civo Cloud" title="Civo Cloud"/>&nbsp;
-  <img src="./assets/icons/render.svg" width="42" height="42" alt="Render" title="Render"/>&nbsp;
-</p>
-
-> ### Machine Learning
-
-<p align="center">
-  <img src="./assets/icons/jupyter.svg" width="42" height="42" alt="Jupyter Notebook" title="Jupyter Notebook"/>&nbsp;
-  <img src="./assets/icons/scikitlearn.svg" width="42" height="42" alt="scikit-learn — Random Forest and GridSearchCV" title="scikit-learn — Random Forest and GridSearchCV"/>&nbsp;
-</p>
-
-<p align="center"><sub>Jupyter Notebook · Random Forest · GridSearchCV</sub></p>
-
-> ### Tools
-
-<p align="center">
-  <img src="./assets/icons/git.svg" width="42" height="42" alt="Git" title="Git"/>&nbsp;
-  <img src="./assets/icons/vscode.svg" width="42" height="42" alt="VS Code" title="VS Code"/>&nbsp;
-  <img src="./assets/icons/postman.svg" width="42" height="42" alt="Postman" title="Postman"/>&nbsp;
-  <img src="./assets/icons/linux.svg" width="42" height="42" alt="Linux" title="Linux"/>&nbsp;
-</p>
-
-<details>
-<summary><b>🚀 A few things I've shipped</b></summary>
-
-| Project | What it does | Built with |
-| --- | --- | --- |
-| [Jobpilot](https://github.com/Vittal-17/Jobpilot) | Job discovery, enrichment, scoring, and alerts | FastAPI · React · PostgreSQL |
-| [CYPHR-RAG](https://github.com/Vittal-17/CYPHR-RAG) | Document-grounded AI with cited answers | FastAPI · Next.js · MongoDB Atlas |
-| [EazyShop](https://github.com/Vittal-17/EazyShop) | E-commerce with payments, wallets, and stock protection | Django REST · React · PostgreSQL |
-| [Krypton](https://github.com/Vittal-17/Krypton) | An agency website with expressive layouts and motion | Next.js · Tailwind CSS |
-| [RoofWorth](https://github.com/Vittal-17/RoofWorth) | Machine learning for house price prediction | Python · Scikit-learn · Flask |
+<table>
+  <tr>
+    <td width="24%"><a href="https://github.com/Vittal-17/Jobpilot"><b>Jobpilot ↗</b></a></td>
+    <td>Job discovery, enrichment, scoring, and alerts<br/><sub>FastAPI · React · PostgreSQL</sub></td>
+  </tr>
+  <tr>
+    <td width="24%"><a href="https://github.com/Vittal-17/CYPHR-RAG"><b>CYPHR-RAG ↗</b></a></td>
+    <td>Document-grounded AI with cited answers<br/><sub>FastAPI · Next.js · MongoDB Atlas</sub></td>
+  </tr>
+  <tr>
+    <td width="24%"><a href="https://github.com/Vittal-17/EazyShop"><b>EazyShop ↗</b></a></td>
+    <td>E-commerce with payments, wallets, and stock protection<br/><sub>Django REST · React · PostgreSQL</sub></td>
+  </tr>
+  <tr>
+    <td width="24%"><a href="https://github.com/Vittal-17/Krypton"><b>Krypton ↗</b></a></td>
+    <td>An agency website with expressive layouts and motion<br/><sub>Next.js · Tailwind CSS</sub></td>
+  </tr>
+  <tr>
+    <td width="24%"><a href="https://github.com/Vittal-17/RoofWorth"><b>RoofWorth ↗</b></a></td>
+    <td>Machine learning for house price prediction<br/><sub>Python · Scikit-learn · Flask</sub></td>
+  </tr>
+</table>
 
 [More on my portfolio ↗](https://vittal-dev.vercel.app/)
 
-</details>
-
-## 🔗 Connect with Me
+## GitHub stats & activity
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/vittal-dev/"><img src="./assets/icons/linkedin.svg" width="40" height="40" alt="Connect on LinkedIn"/></a>&nbsp;
-  <a href="mailto:vitthaljg@gmail.com"><img src="./assets/icons/email.svg" width="40" height="40" alt="Email me"/></a>&nbsp;
-  <a href="https://vittal-dev.vercel.app/"><img src="./assets/icons/portfolio.svg" width="40" height="40" alt="Visit my portfolio"/></a>
+  <picture>
+    <source media="(max-width: 600px)" srcset="./cards/activity-mobile.svg"/>
+    <img src="./cards/activity.svg" width="100%" alt="GitHub contributions, public repositories, stars, followers, and daily streaks"/>
+  </picture>
 </p>
 
 <p align="center">
-  <img src="./cards/snake.svg" width="100%" alt="An animated blue snake following my GitHub contribution trail"/>
+  <picture>
+    <source media="(max-width: 600px)" srcset="./cards/languages-mobile.svg"/>
+    <img src="./cards/languages.svg" width="100%" alt="Language percentages across my public source repositories"/>
+  </picture>
+</p>
+
+## Languages & tools
+
+### Programming languages
+
+<p>
+  <img src="./assets/tool-labels/javascript.svg" height="24" alt="JavaScript"/>&nbsp;
+  <img src="./assets/tool-labels/typescript.svg" height="24" alt="TypeScript"/>&nbsp;
+  <img src="./assets/tool-labels/python.svg" height="24" alt="Python"/>&nbsp;
+</p>
+
+### Frontend
+
+<p>
+  <img src="./assets/tool-labels/react.svg" height="24" alt="React"/>&nbsp;
+  <img src="./assets/tool-labels/nextjs.svg" height="24" alt="Next.js"/>&nbsp;
+  <img src="./assets/tool-labels/html5.svg" height="24" alt="HTML5"/>&nbsp;
+  <img src="./assets/tool-labels/css3.svg" height="24" alt="CSS3"/>&nbsp;
+  <img src="./assets/tool-labels/tailwindcss.svg" height="24" alt="Tailwind CSS"/>&nbsp;
+  <img src="./assets/tool-labels/threejs.svg" height="24" alt="Three.js"/>&nbsp;
+</p>
+
+### Backend
+
+<p>
+  <img src="./assets/tool-labels/fastapi.svg" height="24" alt="FastAPI"/>&nbsp;
+  <img src="./assets/tool-labels/django.svg" height="24" alt="Django REST"/>&nbsp;
+  <img src="./assets/tool-labels/flask.svg" height="24" alt="Flask"/>&nbsp;
+  <img src="./assets/tool-labels/convex.svg" height="24" alt="Convex"/>&nbsp;
+</p>
+
+### Databases
+
+<p>
+  <img src="./assets/tool-labels/postgresql.svg" height="24" alt="PostgreSQL"/>&nbsp;
+  <img src="./assets/tool-labels/mongodb.svg" height="24" alt="MongoDB Atlas"/>&nbsp;
+  <img src="./assets/tool-labels/mysql.svg" height="24" alt="MySQL"/>&nbsp;
+  <img src="./assets/tool-labels/sqlite.svg" height="24" alt="SQLite"/>&nbsp;
+  <img src="./assets/tool-labels/convex.svg" height="24" alt="Convex"/>&nbsp;
+</p>
+
+### DevOps & cloud
+
+<p>
+  <img src="./assets/tool-labels/docker.svg" height="24" alt="Docker"/>&nbsp;
+  <img src="./assets/tool-labels/oracle.svg" height="24" alt="Oracle Cloud"/>&nbsp;
+  <img src="./assets/tool-labels/githubactions.svg" height="24" alt="GitHub Actions"/>&nbsp;
+  <img src="./assets/tool-labels/vercel.svg" height="24" alt="Vercel"/>&nbsp;
+  <img src="./assets/tool-labels/civo.svg" height="24" alt="Civo Cloud"/>&nbsp;
+  <img src="./assets/tool-labels/render.svg" height="24" alt="Render"/>&nbsp;
+</p>
+
+### Machine learning
+
+<p>
+  <img src="./assets/tool-labels/jupyter.svg" height="24" alt="Jupyter Notebook"/>&nbsp;
+  <img src="./assets/tool-labels/scikitlearn.svg" height="24" alt="scikit-learn"/>&nbsp;
+</p>
+
+<p><sub>Random Forest · GridSearchCV</sub></p>
+
+### Tools
+
+<p>
+  <img src="./assets/tool-labels/git.svg" height="24" alt="Git"/>&nbsp;
+  <img src="./assets/tool-labels/vscode.svg" height="24" alt="VS Code"/>&nbsp;
+  <img src="./assets/tool-labels/postman.svg" height="24" alt="Postman"/>&nbsp;
+  <img src="./assets/tool-labels/linux.svg" height="24" alt="Linux"/>&nbsp;
+</p>
+
+## Connect with me
+
+<p>
+  <a href="https://www.linkedin.com/in/vittal-dev/"><img src="./assets/icons/linkedin.svg" width="24" height="24" alt="LinkedIn"/>&nbsp;LinkedIn</a> &nbsp;·&nbsp;
+  <a href="mailto:vitthaljg@gmail.com"><img src="./assets/icons/email.svg" width="24" height="24" alt="Email"/>&nbsp;Email</a> &nbsp;·&nbsp;
+  <a href="https://vittal-dev.vercel.app/"><img src="./assets/icons/portfolio.svg" width="24" height="24" alt="Portfolio"/>&nbsp;Portfolio</a>
 </p>
 
 <p align="center">
-  <sub><a href="https://github.com/Vittal-17">vittal-17</a> · small commits, steady progress.</sub><br/>
+  <picture>
+    <source media="(max-width: 600px)" srcset="./cards/snake-mobile.svg"/>
+    <img src="./cards/snake.svg" width="100%" alt="An animated sage-green snake following my GitHub contribution trail"/>
+  </picture>
+</p>
+
+<p align="center">
   <sub>Pixel art: <a href="https://www.behance.net/gallery/176249761/Late-Sleep">Late Sleep by Kirokaze</a></sub>
 </p>

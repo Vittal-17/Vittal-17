@@ -2,10 +2,11 @@
 
 Edit `README.md` directly. The card generator never rewrites it.
 
-- `cards/`: six SVG cards, generated locally with Python's standard library.
+- `cards/`: activity, languages, and snake SVGs, each with desktop and mobile variants, generated locally with Python's standard library. The README uses native `<picture>` sources to select a readable layout. Mobile calendars show the last 26 weeks; the totals still cover the full contribution period.
 - `contributions.json`: last successful public contribution calendar snapshot.
 - `profile-data.json`: last successful public profile and repository-language snapshot.
 - `assets/`: local hero GIF and tech icons. See `assets/ATTRIBUTION.md`.
+- `assets/tool-labels/`: flat brand-color badges, with a dark icon area and a readable name. Each badge is one local SVG so the logo and name stay together when a row wraps. Text uses black or white according to contrast. Rebuild these with `python3 build_tools.py` after changing the labels, colors, or source icons.
 - `preview.html`: local approximation of GitHub styling. Open in a browser; no server required. Regenerate it with `python3 build_preview.py` after editing README content. It is not a GitHub sanitizer check.
 
 ```sh
@@ -13,6 +14,7 @@ python3 render_cards.py             # fetch public data and render cards
 python3 render_cards.py --offline   # render the saved snapshots
 STATIC=1 python3 render_cards.py --offline  # export without snake animation
 python3 build_preview.py            # rebuild the local README preview
+python3 build_tools.py              # rebuild the icon-and-name pairs
 python3 -m unittest discover -s tests
 ```
 

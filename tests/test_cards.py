@@ -74,6 +74,37 @@ class ProfileTests(unittest.TestCase):
                 self.assertNotIn('<script', path.read_text())
                 self.assertNotIn('<foreignObject', path.read_text())
                 self.assertNotIn('<image', path.read_text())
+                self.assertNotIn('Gradient', path.read_text())
+
+    def test_desktop_and_mobile_exports_have_readable_type(self):
+        a, p = cards.read_json(cards.DATA), cards.read_json(cards.PROFILE)
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(cards, 'OUT', Path(tmp)):
+                cards.render(a, p)
+            for name in ['activity', 'languages', 'snake']:
+                desktop = ET.fromstring((Path(tmp)/(name+'.svg')).read_text())
+                mobile = ET.fromstring((Path(tmp)/(name+'-mobile.svg')).read_text())
+                self.assertGreater(float(desktop.attrib['width']), float(mobile.attrib['width']))
+                for root in [desktop, mobile]:
+                    for node in root.iter('{http://www.w3.org/2000/svg}text'):
+                        self.assertGreaterEqual(float(node.attrib['font-size']), 15)
+
+    def test_static_snake_has_no_animation_and_retains_calendar(self):
+        a = cards.read_json(cards.DATA)
+        with patch.object(cards, 'STATIC', True):
+            for compact in [False, True]:
+                svg = cards.snake_card(a, compact=compact)
+                root = ET.fromstring(svg)
+                self.assertNotIn('animateMotion', svg)
+                self.assertGreater(len(list(root.iter('{http://www.w3.org/2000/svg}rect'))), 100)
+
+    def test_snake_handles_a_calendar_with_no_contributions(self):
+        a = cards.calendar_stats([day('2026-11-01', 0)], date(2026, 11, 7))
+        for compact in [False, True]:
+            svg = cards.snake_card(a, compact=compact)
+            ET.fromstring(svg)
+            self.assertNotIn('animateMotion', svg)
+            self.assertIn('0 contributions', svg)
 
 
 if __name__ == '__main__':
