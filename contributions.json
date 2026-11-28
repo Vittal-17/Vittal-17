@@ -1,12 +1,12 @@
 {
   "_note": "Public GitHub contribution calendar; streaks cover the displayed period.",
-  "_updated": "2026-11-27",
+  "_updated": "2026-11-28",
   "total": 342,
-  "current_streak": 1,
+  "current_streak": 0,
   "longest_streak": 11,
   "active_days": 73,
   "period_start": "2025-11-23",
-  "period_end": "2026-11-27",
+  "period_end": "2026-11-28",
   "days": [
     {
       "date": "2025-11-23",
@@ -1855,6 +1855,11 @@
     },
     {
       "date": "2026-11-27",
+      "level": 0,
+      "count": 0
+    },
+    {
+      "date": "2026-11-28",
       "level": 0,
       "count": 0
     }
@@ -3817,8 +3822,8 @@
       },
       {
         "date": "2026-11-28",
-        "count": 0,
-        "level": 0
+        "level": 0,
+        "count": 0
       }
     ]
   ]
